@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 1번</title>
+</head>
+<body>
+    <h2>함수 1번</h2>
+    <script>
+        // 함수를 생성하는 3가지 방법
+        // 1. 기본 함수 
+        // function 키워드와 함수명을 사용하여 명시적으로 정의하는 방법
+        // 직각사각형의 면적을 구하는 함수
+        console.log(`Area1: ${getArea1(10, 8)}`);
+        function getArea1(width, height) {
+            return width * height;
+        }
+        console.log(`면적1: ${getArea1(10, 7)}`);
+
+        // 2. 익명 함수 
+        // 익명(Anonymous)함수로 정의하는 방법, 함수 리터럴으로 정의하는 방법,
+        // console.log(`Area2: ${getArea2(7, 6)}}`); // Uncaught ReferenceError: Cannot access 'getArea2' before initialization
+        let getArea2 = function(width, height) {
+            return width * height;
+        }
+        console.log(`면적2: ${getArea2(8, 6)}`);
+
+        // 3. Function 생성자 함수
+        // Function() 생성자를 사용하여 정의하는 방법
+        // console.log(`Area3: ${getArea3(30, 40)}`); // Uncaught ReferenceError: Cannot access 'getArea3' before initialization
+        let getArea3 = Function("width", "height", "return width*height");
+        console.log(`면적3: ${getArea3(20, 30)}`);
+        console.log("-----");
+
+        // 함수의 타입 확인
+        console.log(typeof getArea1); // function
+        console.log(typeof getArea2); // function
+        console.log(typeof getArea3); // function
+
+    </script>
+</body>
+</html>

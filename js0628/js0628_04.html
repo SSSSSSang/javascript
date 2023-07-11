@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 1번</title>
+</head>
+<body>
+    <h2>배열 1번 - 1차원 배열</h2>
+    <script>
+        // 1. 1차원 배열을 만드는 방법 - 1번 방법
+        let a1 = []; // 빈 배열
+        let a2 = [10, 20, 30, 40, 50]; // 정수 5개를 갖는 배열
+        let a3 = ["자료 구조", 84, "웹프로그래밍", 92, "알고리즘", 76]; // 문자열과 정수를 모두 저장한 배열
+
+        document.write(a1 + "<br>");
+        document.write(a2 + "<br>");
+        document.write(a3 + "<br>");
+
+        console.log(a1);
+        console.log(a2);
+        console.log(a3);
+        console.log(typeof a1); // object, 객체형
+        console.log(typeof a2); // object
+        console.log(typeof a3); // object
+        console.log("-----");
+
+        // 2. 1차원 배열을 만드는 방법 - 2번 방법
+        // new: 객체 생성시에 사용하는 키워드, Array(): 생성자 함수
+        let b1 = new Array(); // 빈배열
+        let b2 = new Array(10, 20, 30, 40, 50); // 정수 5개를 갖는 배열
+        let b3 = new Array("자료구조", 84, "웹프로그래밍", 92, "알고리즘", 76); // 문자열과 정수를 모두 저장한 배열
+
+        document.write(b1 + "<br>");
+        document.write(b2 + "<br>");
+        document.write(b3 + "<br>");
+
+        console.log(b1);
+        console.log(b2);
+        console.log(b3);
+        console.log(typeof b1); // object
+        console.log(typeof b2); // object
+        console.log(typeof b3); // object
+        console.log("-----");
+
+        // 3. 배열을 다루는 방법
+        let months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        let weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        let seasons = ["Spring", "Summer", "Autumn", "Winter"];
+
+        // 배열의 모든 정보 확인
+        console.log(`월: ${months}`);
+        console.log(`요일: ${weeks}`);
+        console.log(`계절: ${seasons}`);
+
+        // 배열의 요소를 하나씩 확인하는 방법
+        console.log(seasons[0]);
+        console.log(seasons[1]);
+        console.log(seasons[2]);
+        console.log(seasons[3]);
+        console.log(seasons[4]); // 4번의 값이 없으므로 에러가 아니라, undefined
+        console.log("-----");
+
+        // 배열의 요소를 연속해서 하나씩 꺼내어 확인하는 방법
+        for(let i=0; i<seasons.length; i++) {
+            console.log(seasons[i]);
+        }
+        console.log("-----");
+
+        // 문제1. 학생점수 배열을 출력하고, 합계와 평균을 구하시오.
+        // 출력 설계 -> 1번 학생의 점수: 88
+        let scores = [88, 92, 76, 64, 58, 65];
+        let sum = 0, ave;
+
+        for(let i=0; i<scores.length; i++) {
+            console.log(`${i+1}번 학생의 점수: ${scores[i]}`);
+            sum += scores[i];
+        }
+        ave = sum / scores.length;
+        console.log(`합계: ${sum}\n평균: ${ave.toFixed(2)}`);
+        console.log("-----");
+
+        // 데이터의 추가
+        scores[2] = 44; // 데이터의 추가가 아니라, 값을 변경
+        console.log(scores);
+
+        // 데이터의 추가
+        //scores[6] = "결석"; // 6번 자리에 값을 추가
+        scores[7] = "결석"; // 0~5번이 존재, 7번에는 "결석"을 넣고, 6번은 undefined
+        console.log(scores);
+        console.log(typeof scores[6]); // undefined
+        console.log(`학생수: ${scores.length}`);
+        console.log("-----");
+
+        // 1번 출력 방법: 기본 for문
+        for(let i=0; i<scores.length; i++) {
+            console.log(`${i} : ${scores[i]} : ${typeof scores[i]}`);
+        }
+        console.log("-----");
+
+        // 2번 출력 방법: for-in문
+        // 특징: 
+        // 1. i가 인덱스로 사용됨.
+        // 2. undefined값은 출력하지 않음.
+        for(let i in scores) {
+            console.log(`${i} : ${scores[i]} : ${typeof scores[i]}`);
+        }
+        console.log("-----");
+
+        // 3번 출력 방법: for-of문
+        // 특징: 
+        // 1. i가 값으로 사용됨. 인덱스가 없으므로 인덱스를 사용할 없음.
+        // 2. undefined값을 출력함.
+        // 3. 처음부터 끝까지 값을 출력.
+        for(let i of scores) {
+            console.log(`${i} : ${typeof i}`);
+        }
+
+    </script>
+</body>
+</html>

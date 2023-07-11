@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 활용 1번</title>
+    <style>
+        table {
+            width: 800px;
+            border: 1px solid black; border-collapse: collapse;
+        }
+        tr { height: 30px;}
+        th, td { 
+            width: 100px; padding: 5px;
+            border: 1px solid black;
+        }
+        td { padding-left: 10px;}
+    </style>
+</head>
+<body>
+    <h2>반복문 활용 1번</h2>
+    <script>
+        // 퀴즈1. 2단부터 9단까지를 화면으로 출력하시오.
+        // 테이블을 사용하여 2단부터 9단까지가 수평 방향으로 보여지도록 출력하시오.
+        // 2차원 반복문을 활용하시오.
+
+        document.write(`<table><tr>`);
+        for(let i=2; i<=9; i++) {
+            document.write(`<th>${i}단</th>`);
+        }
+        document.write(`</tr>`);
+        for(let i=1; i<=9; i++) {
+            document.write(`<tr>`);
+            for(let j=2; j<=9; j++) { // 1개의 행: 하나의 tr안에 td들을 생성
+                document.write(`<td>${j} * ${i} = ${j*i}</td>`)
+            }
+            document.write(`</tr>`);
+        }
+        document.write(`</table>`);
+
+        // 퀴즈2. 문자열을 입력하여, 회문인지를 판별하시오.
+        // 회문(palindrome): 거꾸로 읽어도 똑같은 단어나 문장 ...
+        // ex) radar, level, rotator, sos, madam, 다시합창합시다 ... 
+        // 출력 화면 설계: radar는 회문입니다. or hello는 회문이 아닙니다.
+        // 1차원 반복문과 조건문의 활용
+        /*
+        let s = prompt("문자열을 입력하시오. 회문 여부를 판별합니다.");
+        s = s.split(""); // 문자열을 문자열의 배열로 변경
+
+        let flag = true; // 플래그
+        for(let i=0; i<parseInt(s.length/2); i++) {
+            if(s[i] != s[s.length-1-i]) { // 회문 판별
+                flag = false;
+                break;
+            }
+        }
+
+        if(flag == true) {
+            console.log(`${s}는 회문입니다.`);
+        } else {
+            console.log(`${s}는 회문이 아닙니다.`);
+        }
+        */
+    </script>
+</body>
+</html>

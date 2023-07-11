@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문 5번</title>
+</head>
+<body>
+    <h3>문제1. 월을 입력하여 계절을 판별하시오.</h3>
+    <button onclick="func1()">계절 판별</button>
+    <hr>
+    <script>
+        function func1() {
+        /*
+        3,4,5 -> 봄, 6,7,8 -> 여름, 9,10,11 -> 가을, 12,1,2 -> 겨울
+        결과화면: 6월은 여름입니다.
+        */
+            const month = Number(prompt("월을 입력하시오.", 6));
+
+            let season;
+
+            // if문을 switch~case문으로 작성하시오.
+            switch(month) {
+            case 3: case 4: case 5:
+                season = "봄";
+                break;
+            case 6: case 7: case 8:
+                season = "여름";
+                break;
+            case 9: case 10: case 11:
+                season = "가을";
+                break;
+            case 12: case 1: case 2:
+                season = "겨울";
+                break;
+            }
+
+            // 출력 방법 1번
+            //document.write(month + "월은 " + season + "입니다.");
+            // 출력 방법 2번 - `(backtick)
+            document.write(`${month}월은 ${season}입니다.`)
+        }
+    </script>
+
+    <h3>문제2. 학생이름, 국어점수, 영어점수, 수학점수를 입력하여, 평균과 학점을 출력하시오.</h3>
+    <button onclick="func2()">학점 계산</button>
+    <script>
+        function func2() {
+            const name = prompt("학생이름을 입력하시오.");
+            const kor = Number(prompt("국어점수를 입력하시오.")); // "92" -> 92
+            const eng = Number(prompt("영어점수를 입력하시오.")); // "92" -> 92
+            const mat = Number(prompt("수학점수를 입력하시오.")); // "92" -> 93
+
+            // 평균 계산
+            const ave = (kor + eng + mat) / 3;
+            // let ave = (Number(kor) + Number(eng) + Number(mat));
+
+            // 학점 계산
+            // if문을 switch~case문으로 변경하시오.
+            let grade;
+
+            // A: 99, 98, 97 ... 90 -> 10의 자리로 학점 판별
+            // 95/10 -> 9.5
+            // parseInt(): 정수로 변환
+            switch(parseInt(ave/10)) {
+            case 10: case 9:
+                grade = "A학점"; 
+                break;
+            case 8:
+                grade = "B학점";
+                break;
+            case 7:
+                grade = "C학점";
+                break;
+            case 6: 
+                grade = "D학점";
+                break;
+            default:
+                grade = "F학점";
+                break;
+            }
+
+            // backtick을 사용한 출력문으로 변경하시오.
+            document.write(`학생이름 : ${name}
+            국어점수 : ${kor}
+            영어점수 : ${eng}
+            수학점수 : ${mat}`);
+            document.write(`합계 : ${kor+eng+mat}\n평균 : ${ave.toFixed(2)}\n학점 : ${grade}\n`);
+        }
+    </script>
+</body>
+</html>

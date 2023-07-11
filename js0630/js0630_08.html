@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 7번</title>
+</head>
+<body>
+    <h2>함수 7번</h2>
+    <script>
+        // 콜백함수와 익명함수를 활용한 다양한 메소드
+        let scores = [95, 78, 66, 87, 55];
+        let numbers = [];
+
+        // 문제1. scores 배열의 인덱스와 값을 출력하시오.
+        for(let i=0; i<scores.length; i++) {
+            console.log(`${i}번 인덱스의 값: ${scores[i]}`);
+        }
+        console.log("-----");
+
+        for(let i in scores) {
+            console.log(`${i}번 인덱스의 값: ${scores[i]}`);
+        }
+        console.log("-----");
+
+        // 1. forEach(): 배열의 요소를 순차적으로 접근하는 메소드
+        scores.forEach(function(v, i, a) { // 값(value), 인덱스(index), 배열명(array) 순으로 씀. a는 생략 가능
+            console.log(`${i}번 인덱스의 값: ${v}`);
+        });
+        console.log("-----");
+
+        scores.forEach((v, i) => console.log(`${i}번 인덱스의 값: ${v}`));
+
+        // 문제2. scores 배열의 모든 값을 제곱하여 numbers라는 배열에 저장하시오.
+        /*
+        for(let i=0; i<scores.length; i++) {
+            numbers[i] = scores[i] * scores[i];
+        } 
+        console.log(numbers);
+        console.log("-----");
+        */
+
+        // 2. map(): 콜백함수에서 리턴한 값을 기반으로 새로운 배열을 생성하는 메소드
+        /*
+        numbers = scores.map(function(v, i) { // i를 사용하지 않으면 생략 가능.
+            return v * v;
+        });
+        console.log(numbers);
+        console.log("-----");
+        */
+        numbers = scores.map(v=>v*v);
+        console.log(numbers);
+        console.log("-----");
+
+        // 문제3. scores 배열에서 80점 이상인 점수만 pass라는 배열에 저장하시오.
+        /*
+        let pass = [], cnt = 0;
+        for(let i=0; i<scores.length; i++) {
+            if(scores[i] >= 80) {
+                pass[cnt++] = scores[i];
+            }
+        } 
+        console.log(pass);
+        console.log("-----");
+        */
+
+        // 3. filter(): 콜백함수에서 리턴한 값 중에서 true인 값만 모아서 새로운 배열을 생성하는 메소드
+        /*
+        let pass = scores.filter(function(v) {
+            return v >= 80;
+        });
+        console.log(pass);
+        console.log("-----");
+        */
+
+        let pass = scores.filter(v => v>=80);
+        console.log(pass);
+        console.log("-----");
+
+        // 문제4. scores 배열의 값을 오름차순으로 정렬하여 출력하시오.
+        // let scores = [95, 78, 66, 87, 55];
+        // 오름차순 정렬: 55, 66, 78, 87, 95
+        // 내림차순 정렬: 95, 87, 78, 66, 55 
+
+        // 4. sort(): 배열의 값을 오름차순 또는 내림차순으로 정렬하는 메소드
+        //scores.sort().forEach(v => console.log(`${v}`)); // 오름차순으로 저장
+        scores.sort((a,b) => b-a).forEach(v => console.log(`${v}`)); // 내림차순으로 저장
+        console.log(scores);
+        console.log("-----");
+
+        // 5. 종합 응용 문제
+        // arr 배열에서 짝수만 구하여, 그 값에 제곱을 하여 출력하시오.
+        let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        // 메소드 체이닝(chaining) 기법: 메소드의 리턴값을 받아서 다음 메소드에서 사용하는 방법
+        arr.filter(v => v%2==0).map(v => v*v).forEach(v => console.log(`${v}`));
+
+    </script>
+</body>
+</html>

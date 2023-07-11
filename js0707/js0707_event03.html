@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 3번</title>
+    <style>
+        #result { 
+            width: 400px; height: 100px; 
+            border: 1px solid black; background-color: lavender;
+            text-align: center; line-height: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            // 2번 - 고전 이벤트
+            let btnOld = document.getElementById("btnOld");
+            btnOld.onclick = eventListener1;
+            btnOld.onmouseover = eventListener2;
+            btnOld.onmouseout = eventListener3;
+
+            // 3번 - 표준 이벤트
+            let btnStd = document.getElementById("btnStd");
+            btnStd.addEventListener("click", eventListener1);
+            btnStd.addEventListener("mouseover", eventListener2);
+            btnStd.addEventListener("mouseout", eventListener3);
+
+            function eventListener1(e) {
+                let result = document.getElementById("result");
+                result.style.backgroundColor = "pink";
+                result.innerHTML = `${e} : ${e.type} 이벤트가 발생함.`;
+            }
+            function eventListener2(e) {
+                let result = document.getElementById("result");
+                result.style.backgroundColor = "lime";
+                result.innerHTML = `${e} : ${e.type} 이벤트가 발생함.`;
+            }
+            function eventListener3(e) {
+                let result = document.getElementById("result");
+                result.style.backgroundColor = "skyblue";
+                result.innerHTML = `${e} : ${e.type} 이벤트가 발생함.`;
+            }
+        }
+
+        /* ******************** */
+        // 1번 - 인라인 이벤트
+        function eventHandler1(e) {
+            let result = document.getElementById("result");
+            result.style.backgroundColor = "pink";
+            result.innerHTML = `${e} : ${e.type} 이벤트가 발생함.`;
+        }
+        function eventHandler2(e) {
+            let result = document.getElementById("result");
+            result.style.backgroundColor = "lime";
+            result.innerHTML = `${e} : ${e.type} 이벤트가 발생함.`;
+        }
+        function eventHandler3(e) {
+            let result = document.getElementById("result");
+            result.style.backgroundColor = "skyblue";
+            result.innerHTML = `${e} : ${e.type} 이벤트가 발생함.`;
+        }
+
+    </script>
+</head>
+<body>
+    <h2>Event 3번</h2>
+    <h3>이벤트 모델의 다양한 이벤트 처리</h3>
+    <hr>
+    <div id="result"></div>
+    <hr>
+    1번: 인라인 이벤트 <button onclick="eventHandler1(event)" onmouseover="eventHandler2(event)" onmouseout="eventHandler3(event)">인라인 이벤트</button><br><br>
+    2번: 고전 이벤트 <button id="btnOld">고전 이벤트</button><br><br>
+    3번: 표준 이벤트 <button id="btnStd">표준 이벤트</button><br><br>
+</body>
+</html>

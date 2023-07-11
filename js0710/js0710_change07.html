@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Event 7번</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            //let fruit = document.getElementsByName("fruit"); // 배열
+            //let txt = document.getElementById("txt");
+
+            let fruit = document.querySelectorAll("[name=fruit]"); // 배열
+            let txt = document.querySelector("#txt");
+            //console.log(fruit);
+            //console.log(txt);
+
+            // 1번 - 문자열
+            /*
+            let fruitList = "";
+            for(let i of fruit) {
+                i.addEventListener("change", (event) => {
+                    if(event.currentTarget.checked) { // 체크했을 때 -> 과일 추가
+                        fruitList += i.value + " ";
+                    } else { // 해제했을 때 -> 과일 삭제
+                        fruitList = fruitList.replace(i.value + " ", "");
+                    }
+                    txt.textContent = fruitList;
+                })
+            }
+            */
+
+            // 2번 - 배열
+            let fruitList = [];
+            for(let i of fruit) {
+                i.addEventListener("change", (event) => {
+                    if(event.currentTarget.checked) { // 체크했을 때 -> 과일 추가
+                        fruitList.push(i.value);
+                    } else { // 해제했을 때 -> 과일 삭제
+                        // 배열명.splice(찾을 단어, 개수); -> 찾을 단어를 개수만큼 배열에서 삭제
+                        fruitList.splice(fruitList.indexOf(i.value), 1); // i.value를 찾아서 1개를 배열에서 삭제
+                    }
+                    txt.textContent = fruitList;
+                })
+            }
+
+        })
+    </script>
+</head>
+<body>
+    <h2>Change Event 7번 - checkbox</h2>
+    <h3>과일 구매하기 - checkbox, change 이벤트</h3>
+    <p>장바구니에 구매하고자 하는 과일을 담으시오. (다중 선택)</p>
+    <input type="checkbox" name="fruit" value="사과" id="f1"><label for="f1">사과</label>
+    <input type="checkbox" name="fruit" value="딸기" id="f2"><label for="f2">딸기</label>
+    <input type="checkbox" name="fruit" value="포도" id="f3"><label for="f3">포도</label>
+    <input type="checkbox" name="fruit" value="메론" id="f4"><label for="f4">메론</label>
+    <input type="checkbox" name="fruit" value="수박" id="f5"><label for="f5">수박</label>
+    <input type="checkbox" name="fruit" value="바나나" id="f6"><label for="f6">바나나</label>
+    <br><hr>
+    선택한 과일: <span id="txt"></span>
+</body>
+</html>

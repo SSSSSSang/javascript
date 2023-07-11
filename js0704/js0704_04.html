@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object 객체 1번</title>
+</head>
+<body>
+    <h2>Object 객체 1번</h2>
+    <script>
+        let player = new Object(); // 빈 객체
+        console.log(typeof player); // object
+
+        // 1. 프로퍼티 추가
+        player.name = "이영진"; // 이름과 값의 형태
+        player.position = "FW"; 
+        player.no = "10";
+        player.age = 41;
+
+        // 2. 메소드 추가
+        // player 객체의 정보를 알려주는 메소드를 추가
+        // this: 메소드에서 프로퍼티에 접근할 때 사용
+        player.showInfo = function() {
+            return `이름: ${this.name}, 포지션: ${this.position}, 넘버: ${this.no}, 나이: ${this.age}`;
+        }
+
+        // 객체 사용하여 출력
+        console.log(player.showInfo());
+
+    </script>
+</body>
+</html>

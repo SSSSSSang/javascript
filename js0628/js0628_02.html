@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 응용 2번</title>
+    <style>
+        table{ 
+            width: 240px;
+            border: 1px solid black; border-collapse: collapse;
+        }
+        tr { height: 40px;}
+        th, td { width: 33.33%; border: 1px solid black; text-align: center;};
+    </style>
+</head>
+<body>
+    <h2>반복문 응용 2번</h2>
+    <script>
+        // 문제1. 입력창을 통해 정수를 입력하여 1부터 입력한 수까지의 
+        // n, n의 제곱, n의 세제곱을 화면에 테이블 형태로 출력하시오. (풀이시간: 5분)
+        // ex) 5를 입력하면,
+        // n n2 n3
+        // 1 1 1
+        // 2 4 8
+        // 3 9 27
+        // 4 16 64
+        // 5 25 125
+        /*
+        let n = Number(prompt("정수를 입력하시오."));
+
+        document.write("<table>");
+        document.write("<tr><th>n</th><th>n<sup>2</sup></th><th>n<sup>3</sup></th></tr>");
+        for(let i=1; i<=n; i++) {
+            //console.log(`${i} : ${i*i} : ${i*i*i}`);
+            document.write(`<tr><td>${i}</td><td>${i*i}</td><td>${i*i*i}</td></td>`);
+        }
+        document.write("</table>");
+        */
+
+        // 문제2. 입력창으로 정수를 입력하여, 정수의 팩토리얼을 화면 또는 콘솔로 출력하시오. 
+        // (풀이시간: 5분) 반복문과 조건문의 활용 문제
+        // factorial, 5의 팩토리얼 1 * 2 * 3 * 4 * 5 = 120
+        // 출력 화면 설계: 5를 입력하였다면,
+        // 5! = 1 * 2 * 3 * 4 * 5 = 120
+
+        // 1번 - 화면 출력
+        /*
+        let n = Number(prompt("정수를 입력하시오. 팩토리얼을 구합니다."));
+        let fact = 1;
+
+        document.write(`${n}! = `)
+        for(let i=1; i<=n; i++) {
+            document.write(`${i}`);
+            if(i < n) { // n이 5라면, 1, 2, 3, 4일때만 *를 출력
+                document.write(` * `)
+            }
+            fact *= i;
+        }
+        document.write(` = ${fact}`)
+        */
+
+        // 2번 - 콘솔 출력
+        let n = Number(prompt("정수를 입력하시오. 팩토리얼을 구합니다."));
+        let fact = 1;
+        let str = `${n}! = `;
+
+        for(let i=1; i<=n; i++) { 
+            if(i < n) { // n이 5라면, 1,2,3,4일 때만 *를 str에 연결
+                str += `${i} * `;
+            } else {
+                str += `${i}`;
+            }
+            fact *= i;
+        }
+        str += ` = ${fact}`;
+        console.log(str);
+
+    </script>
+</body>
+</html>

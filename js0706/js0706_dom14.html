@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 14번</title>
+    <style>
+        #container { width: 500px; margin: 30px auto;}
+        fieldset { padding: 20px;}
+        #result { height: 60px;}
+    </style>
+    <script>
+        // 퀴즈1번) 폼 3개의 정보를 result 영역에 출력하시오. (1문제 당 10점으로 계산)
+        // form을 다루는 방법, radio버튼을 다루는 방법
+        function showResult() {
+            // 첫번째 form의 학과, 이름 정보
+            // 1번 방법 - form, input의 name을 활용
+            /*
+            let dept = document.info.dept.value;
+            let sname = document.info.sname.value;
+            */
+
+            // 2번 방법 - form을 배열로, 입력창을 문자열 인덱스로 활용
+            /*
+            let dept = info['dept'].value;
+            let sname = info['sname'].value;
+            */
+
+            // 3번 방법 - forms[] 배열을 활용
+            let dept = document.forms[0].dept.value;
+            let sname = document.forms[0].sname.value;
+
+            console.log(`학과: ${dept}`);
+            console.log(`이름: ${sname}`);
+
+            // 점수 계산
+            let answer = [4, 2]; // 정답
+            let test = [];       // 학생이 체크한 답
+
+            // 1번 방법
+            /*
+            test[0] = document.quiz01.q1.value;
+            test[1] = document.quiz02.q2.value;
+            */
+
+            // 2번 방법
+            /*
+            test[0] = quiz01['q1'].value;
+            test[1] = quiz02['q2'].value;
+            */
+           
+            // 3번 방법
+            test[0] = document.forms[1].q1.value;
+            test[1] = document.forms[2].q2.value;
+
+            console.log(`1번문제: ${test[0]}`);
+            console.log(`2번문제: ${test[1]}`);
+
+            // 계산 - 한 문제당 10점
+            let sum = 0;
+            for(let i=0; i<answer.length; i++) {
+                if(answer[i] == test[i]) {
+                    sum += 10;
+                }
+            }
+
+            // result영역에 결과 출력
+            let result = document.getElementById("result");
+            result.innerHTML = `전공: ${dept}<Br>이름 : ${sname}<br>점수: ${sum}점`
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <fieldset>
+            <h2>DOM 객체 - form을 활용</h2>
+            <h3>자바스크립트 과목 테스트</h3>
+            <form action="" name="info"> <!-- 첫번째 form: forms[0] -->
+                학과: <input type="text" name="dept"><br>
+                이름: <input type="text" name="sname">
+            </form>
+            <hr>
+            <form action="" name="quiz01"> <!-- 두번째 form: forms[1] -->
+                문제1) 프런트엔드 프로그래밍에서 다루는 언어가 아닌 것은?<br>
+                <input type="radio" name="q1" value="1">HTML<br>
+                <input type="radio" name="q1" value="2">CSS<br>
+                <input type="radio" name="q1" value="3">Javascript<br>
+                <input type="radio" name="q1" value="4">Oracle<br>
+            </form>
+            <hr>
+            <form action="" name="quiz02"> <!-- 세번째 form: forms[2] -->
+                문제2) 다음 중 웹브라우저가 아닌 것은?<br>
+                <input type="radio" name="q2" value="1">오페라<br>
+                <input type="radio" name="q2" value="2">드림위버<br>
+                <input type="radio" name="q2" value="3">사파리<br>
+                <input type="radio" name="q2" value="4">파이어폭스<br>
+            </form>
+            <hr>
+            <button onclick="showResult()">시험 결과</button>
+            <hr>
+            <div id="result"></div>    
+        </fieldset>
+    </div>
+</body>
+</html>

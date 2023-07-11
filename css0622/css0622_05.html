@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션 응용 1번</title>
+    <style>
+        /* transition, transform */
+        /* 박스에 마우스를 올리면 너비와 높이가 2초 동안 절반만큼 줄어들고, 
+        색상이 초록색으로 바뀌고, 270도 회전하도록 애니메이션 효과를 적용하시오.
+        속도는 처음에는 느리게, 그 다음부터는 일정한 속도로 변화하도록 하시오. */
+        div { 
+            width: 200px; height: 200px;
+            background-color: red;
+            border: 1px solid black;
+            margin: 100px;
+            /* 1번 방법 */
+            /* transition-property: width, height, background-color, transform;
+            transition-duration: 2s;
+            transition-timing-function: ease-in; */
+            /* 2번 방법 */
+            /* transition: width 2s ease-in, height 2s ease-in, background-color 2s ease-in, transform 2s ease-in;*/
+
+            /* 3번 방법 */
+            transition: 2s ease-in;
+        }
+        .box:hover { 
+            width: 100px; height: 100px;
+            background-color: green;
+            transform: rotate(270deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

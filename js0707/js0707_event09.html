@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 9번</title>
+    <script>
+        // 고전 이벤트 모델
+        //window.onload = function() { }
+        //window.onload = () => { }
+
+        // 표준 이벤트 모델
+        //window.addEventListener("DOMContentLoaded", function() { })
+        window.addEventListener("DOMContentLoaded", () => {
+            let hTag = document.querySelector("h1");
+            hTag.textContent = "자바스크립트 이벤트를 공부하는 중입니다."; // textContent: innerText를 개선하여 만든 프로퍼티
+            hTag.style.backgroundColor = "black";
+            hTag.style.color = "white";
+            hTag.style.fontSize = "30px";
+        })
+    </script>
+</head>
+<body>
+    <h1></h1>
+</body>
+</html>

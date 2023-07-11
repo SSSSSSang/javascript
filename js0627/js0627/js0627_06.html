@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 5번</title>
+</head>
+<body>
+    <h2>반복문 5번</h2>
+    <h3>break문과 continue문</h3>
+    <script>
+        // 1. break문의 사용
+        /*
+        let i = 1;
+        while(i <= 10) {
+            if(i == 6) { // i가 6이 되면 참
+                break;
+            }
+            console.log(i);
+            i++;
+        }
+        */
+
+        // 2. continue문의 사용
+        /*
+        for(let i=1; i<=10; i++) {
+            if(i == 6) { 
+                //break;
+                continue;
+            }
+            console.log(i);
+
+        }
+        */
+
+        // 문제1) 1부터 100까지의 정수 중에서 3의 배수만 제외하고 출력하시오.
+        for(let i=1; i<=10; i++) {
+            if(i%3 == 0) {
+                continue;
+            }
+            console.log(i);
+        }
+
+        // 퀴즈1) 입력창을 통해 정수를 입력하고, 그 정수의 약수를 콘솔로 출력하시오.
+        // 약수의 합과 개수를 출력하시오.
+        // ex) 10 -> 1, 2, 5, 10, 합계: 18, 개수: 4
+
+        // 퀴즈2) 입력창을 통해서 구구단의 단을 입력하고, 그 결과를 화면으로 출력하시오.
+        // 화면으로 출력할 때, 테이블을 활용하시오.
+        // ex) 5 
+        // 5 * 1 = 5
+        // 5 * 2 = 10
+        // ...
+        // 5 * 9 = 45
+
+        
+    </script>
+</body>
+</html>

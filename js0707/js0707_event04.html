@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 4번</title>
+    <style>
+        
+    </style>
+    <script>
+        window.onload = function() {
+            // 2. 고전 이벤트
+            let bg1 = document.getElementById("bg1");
+            bg1.onmouseover = function() {
+                bg1.src = "images/image2.jpg";
+            }
+            bg1.onmouseout = function() {
+                bg1.src = "images/image1.jpg";
+            }
+
+            // 3. 표준 이벤트 모델
+            let bg2 = document.getElementById("bg2");
+            bg2.addEventListener("mouseover", function(){
+                bg2.src = "images/image2.jpg";
+            })
+            bg2.addEventListener("mouseout", function() {
+                bg2.src = "images/image1.jpg";
+            })
+        }
+
+        /* ******************** */
+        // 1번. 인라인 이벤트 모델
+        function f1(obj) {
+            obj.src = "images/image2.jpg";
+        }
+        function f2(obj) {
+            obj.src = "images/image1.jpg";
+        }
+    </script>
+</head>
+<body>
+    <h2>Event 4번</h2>
+    <h3>이미지 위로 마우스를 이동하면, 이미지가 바뀝니다.</h3>
+    <p>인라인 이벤트</p>
+    <!-- this: 자신의 태그 -->
+    <img src="images/image1.jpg" width="300" onmouseover="f1(this)" onmouseout="f2(this)">
+    <hr>
+    <p>고전 이벤트</p>
+    <img src="images/image1.jpg" width="300" id="bg1">
+    <hr>
+    <p>표준 이벤트</p>
+    <img src="images/image1.jpg" width="300" id="bg2">
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 1번</title>
+    <script>
+        // 1-1. 싱글톤 객체, Singleton Object
+        // 싱글톤 객체 생성
+        let student = {
+            // property
+            name: "정혜인",
+            major: "국어국문학과",
+            age: 32,
+
+            // method -> 반드시 익명함수를 사용, 기본함수와 화살표 함수는 사용 불가
+            showInfo: function() {
+                console.log(`이름: ${this.name}\n전공: ${this.major}\n나이: ${this.age}`);
+            }
+        }
+
+        // 싱글톤 객체 사용
+        // 프로퍼티 사용
+        console.log(`이름: ${student.name}`);
+        console.log(`전공: ${student.major}`);
+        console.log(`나이: ${student.age}`);
+        console.log("-----");
+        // 메소드 사용
+        student.showInfo();
+        console.log("-----");
+
+        // ########## //
+        // 1-2. 싱글톤 객체
+        // 싱글톤 객체 생성
+        let student2 = new Object(); // 빈 객체
+        // 프로퍼티 추가
+        student2.name = "이영진";
+        student2.major = "영어영문학과";
+        student2.age = 41;
+        // 메소드 추가
+        student2.showInfo = function() {
+            console.log(`name: ${this.name}\nmajor: ${this.major}\nage: ${this.age}`);
+        }
+        
+        // 싱글톤 객체 사용
+        // 프로퍼티 사용
+        console.log(`name: ${student2.name}`);
+        console.log(`major: ${student2.major}`);
+        console.log(`age: ${student2.age}`);
+        console.log("-----");
+        student2.showInfo();
+
+    </script>
+</head>
+<body>
+    <h1>객체 1번</h1>
+</body>
+</html>

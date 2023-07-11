@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 4번</title>
+    <style>
+
+    </style>
+    <script>
+        /*
+        퀴즈1번) Next1 버튼을 클릭했을 때, txt1의 내용을 "이제부터는 자바스크립트를 공부합니다!"로 변경하는 
+        함수를 만들어 적용하시오.
+        퀴즈2번) Next2 버튼을 클릭했을 때, txt1 아래에 js.png 이미지를 200*200으로 추가하고, 
+        h3태그를 적용하여 "즐공, 열공 합시다!"라는 텍스트를 추가하도록 함수를 만들어 적용하시오.
+        */
+        function changeContent1() {
+            let pTag = document.getElementById("txt1");
+            pTag.innerHTML = "<b>이제부터는 자바스크립트를 공부합니다!</b>"; // 값의 쓰기(설정, 저장)
+            //pTag.innerText = "<b>이제부터는 자바스크립트를 공부합니다!</b>";
+
+            alert(pTag.innerHTML); // 읽기
+        }
+
+        function changeContent2() {
+            let pTag = document.getElementById("txt1");
+            let txt = pTag.innerHTML; // 값의 읽기
+            txt += "<img src='images/js.png' width='200' height='200'>";
+            txt += "<h3>즐공, 열공 합시다!</h3>";
+            pTag.innerHTML = txt; // 값의 쓰기(설정, 저장)
+        }
+    </script>
+</head>
+<body>
+    <h2>자바스크립트로는 무엇을 할 수 있습니까?</h2>
+    <p id="txt1">지금까지는 HTML5와 CSS3를 공부하였습니다.</p>
+    <button onclick="changeContent1()">Next1</button>
+    <button onclick="changeContent2()">Next2</button>
+</body>
+</html>

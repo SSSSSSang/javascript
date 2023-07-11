@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자와 입력함수 활용</title>
+</head>
+<body>
+    <h3>연산자와 입력함수 활용</h3>
+    <script>
+    /*
+    퀴즈 1번)
+    이름, 키, 몸무게를 입력함수로 입력받아서, 적정 체중인가를 판단하는 프로그램을 작성하시오.
+    평균 체중 계산: (키 - 100) * 0.9
+    적정 체중 계산: 
+    몸무게가 평균 체중에서 5를 뺀 값보다 크거나 같고, 
+    몸무게가 평균 체중에서 5를 더한값보다 작거나 같으면 평균체중으로 판단함.
+    
+    결과화면: 홍길동님은 적정 체중입니다. or 홍길동님은 적정 체중이 아닙니다.
+    */
+        let name = prompt("당신의 이름을 입력하시오.");
+        let height = prompt("키를 입력하시오.");
+        let weight = prompt("몸무게를 입력하시오.");
+
+        let n_weight = (height - 100) * 0.9;
+        let g_weight = (weight >= n_weight-5) && (weight <= n_weight+5);
+        let result = g_weight ? "적정 체중입니다." : "적정 체중이 아닙니다.";
+
+        document.write(name + "님은 " + result);
+    </script>
+</body>
+</html>

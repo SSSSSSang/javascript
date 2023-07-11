@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>screen 객체</title>
+</head>
+<body>
+    <h2>screen 객체</h2>
+    <button onclick="resizeHalf()">화면의 2분의1 크기</button>
+    <button onclick="resizeQuarter()">화면의 4분의1 크기</button>
+    <script>
+        function resizeHalf() {
+            let w1 = window.open('', '', 'width=200, height=150');
+            let width = screen.width / 2;   // 모니터 화면너비의 절반
+            let height = screen.height / 2; // 모니터 화면높이의 절반
+
+            w1.resizeTo(width, height);     // 웹브라우저의 창의 크기 재조정
+        }
+
+        function resizeQuarter() {
+            let w1 = window.open('', '', 'width=200, height=150');
+            let width = screen.width / 4;   // 모니터 화면너비의 4분의1
+            let height = screen.height / 4; // 모니터 화면높이의 4분의1
+
+            w1.resizeTo(width, height);     // 웹브라우저의 창의 크기 재조정
+        }
+    </script>
+</body>
+</html>

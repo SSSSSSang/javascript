@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 3번</title>
+    <style>
+        #img1 { width: 70px; height: 70px;}
+        #txt1 { background-color: orange;}
+    </style>
+    <script>
+        function changeStyle() {
+            let imgTag = document.getElementById("img1");
+            let txtTag = document.getElementById("txt1");
+
+            // img태그의 속성 변경 - 경로, 크기(너비, 높이)
+            imgTag.src = "images/html5.png";
+            imgTag.style.width = "100px";
+            imgTag.style.height = "100px";
+
+            // span태그의 내용과 속성 변경
+            txtTag.innerHTML = "HTML5";
+            txtTag.style.backgroundColor = "hotpink";
+        }
+    </script>
+</head>
+<body>
+    <h2>DOM 객체 3번</h2>
+    <img src="images/js.png" id="img1">
+    <span id="txt1">자바스크립트</span>
+    <hr>
+    <button onclick="changeStyle()">문서 변경</button>
+</body>
+</html>

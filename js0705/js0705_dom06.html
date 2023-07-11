@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 6번</title>
+    <style>
+        #box { 
+            width: 300px; height: 100px;
+            border: 1px solid black;
+            text-align: center; line-height: 100px;
+        }
+    </style>
+    <script>
+        function changeStyle() {
+            let divTag = document.getElementById("box");
+            divTag.innerHTML = "Javascript Programming!";
+            divTag.style.fontSize = "20px";
+            divTag.style.fontWeight = "bold";
+            divTag.style.fontStyle = "italic";
+            divTag.style.backgroundColor = "skyblue";
+            divTag.style.color = "hotpink";
+            divTag.style.width = "400px";
+            divTag.style.height = "150px";
+            divTag.style.lineHeight = "150px";
+            divTag.style.borderRadius = "50%";
+            // 텍스트의 그림자, 박스의 그림자
+            divTag.style.textShadow = "2px 2px 3px yellow";
+            divTag.style.boxShadow = "-10px -10px 10px pink";
+        }
+    </script>
+</head>
+<body>
+    <h2>document 객체 - 다양한 스타일 변경</h2>
+    <div id="box">자바스크립트 연습</div><br>
+    <button onclick="changeStyle()">스타일 변경</button>
+</body>
+</html>

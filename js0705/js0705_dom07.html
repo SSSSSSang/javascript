@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 7번</title>
+    <style>
+        #answer {
+            /* visibility: hidden; */
+            display: none;
+        }
+    </style>
+    <script>
+        // 퀴즈1) 정답 버튼을 눌렀을 때, answer에 텍스트가 나타나도록 작성하시오.
+        // 1번
+        /*
+        function showAnswer() {
+            let pTag = document.getElementById("answer");
+            pTag.style.visibility = "visible";
+        }
+        */
+
+        // 2번
+        function showAnswer() {
+            let pTag = document.getElementById("answer");
+            let check = confirm("정답을 확인하겠습니까?");
+
+            if(check) {
+                //pTag.style.visibility = "visible";
+                pTag.style.display = "block";
+            } else {
+                //pTag.style.visibility = "hidden";
+                pTag.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>ducument 객체 활용</h2>
+    <p>[문제1] 동적 웹페이지를 작성할 때 사용하는 프로그래밍 언어를 쓰시오.</p>
+    <button onclick="showAnswer()">정답</button>
+    <hr>
+    <p id="answer">자바스크립트</p>
+</body>
+</html>

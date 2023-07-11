@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 배열 2번</title>
+    <style>
+        table { 
+            width: 500px;
+            border: 1px solid black; border-collapse: collapse;
+        }
+        tr { height: 40px;}
+        th, td { 
+            width: 14.28%; padding: 5px; border: 1px solid black;
+            text-align: center;
+        }  
+    </style>
+</head>
+<body>
+    <h2>2차원 배열</h2>
+    <script>
+        // 문제1. 2차원 배열인 students에 총점, 평균, 학점을 추가하여 출력하시오.
+        // 출력은 테이블을 사용하여 출력하시오.
+        // 3가지 반복문의 형태로 출력하시오.
+        // 이름   전공 중간 기말 총점 평균 학점
+        // 김민성 컴공 88   76   164 82   B 
+
+        let students = [
+            // students 배열의 행 개수: students.length
+            ["김민성", "컴공", 88, 76], // 04: 164, 05: 82, 06: B
+            ["김정아", "수학", 70, 83], // 14: 153, 15: 76.5, 16: C
+            ["신은수", "행정", 92, 95], // 24: 187, 25: 93.5, 26: A
+            ["이은진", "물리", 85, 92], // 34: 177, 35: 87.5, 36: B
+            ["조우진", "건축", 97, 88], // 44: 185, 45: 92.5, 46: A
+        ];
+        let titles = ["이름", "전공", "중간", "기말", "총점", "평균", "학점"];
+
+        // 총점, 평균, 학점을 students 배열에 추가
+        for(let i=0; i<students.length; i++) {
+            students[i][4] = students[i][2] + students[i][3];
+            students[i][5] = students[i][4] / 2;
+
+            let grade;
+            switch(parseInt(students[i][5]/10)) {
+            case 10: case 9: grade = "A"; break;
+            case 8: grade = "B"; break;
+            case 7: grade = "C"; break;
+            case 6: grade = "D"; break;
+            default: grade = "F"; break;
+            }
+            students[i][6] = grade;
+        }
+        // 추가된 students 배열을 출력
+        document.write(`<table><tr>`)
+        for(let i=0; i<titles.length; i++) {
+            document.write(`<th>${titles[i]}</th>`);
+        }
+        document.write(`</tr>`);
+        for(let i=0; i<students.length; i++) { // 행, students.length: 행의 개수
+            document.write(`<tr>`);
+            for(let j=0; j<students[i].length; j++) { // 열, students[i].length: 각 행에 대한 열의 개수
+                document.write(`<td>${students[i][j]}</td>`);
+            }
+            document.write(`</tr>`);
+        }
+        document.write(`</table>`);
+        document.write(`<br><hr><br>`);
+
+    </script>
+</body>
+</html>

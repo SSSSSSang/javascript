@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 응용 1번</title>
+    <style>
+        table {
+            width: 150px; border: 1px solid black; border-collapse: collapse;
+        }
+        tr { height: 40px;}
+        td, th { border: 1px solid black; text-align: center;}
+        table tr:nth-child(odd) { background-color: lavender;}
+    </style>
+</head>
+<body>
+    <h2>반복문 응용 1번</h2>
+    <script>
+        // 퀴즈1) 입력창을 통해 정수를 입력하고, 그 정수의 약수를 콘솔로 출력하시오.
+        // 약수의 합과 개수를 출력하시오.
+        // ex) 10 -> 1, 2, 5, 10, 합계: 18, 개수: 4
+
+        /*
+        let n = Number(prompt("정수를 입력하시오."));
+        let sum = 0, cnt = 0;
+
+        // n이 10이라고 가정하면,
+        for(let i=1; i<=n; i++) {
+            if(n%i == 0) { // n에 대한 약수 판별
+                console.log(i);
+                sum += i;
+                ++cnt;
+            }
+        }
+
+        console.log(`${n}의 약수 합계: ${sum}`);
+        console.log(`${n}의 약수 개수: ${cnt}`);
+        */
+
+        // 퀴즈2) 입력창을 통해서 구구단의 단을 입력하고, 그 결과를 화면으로 출력하시오.
+        // 화면으로 출력할 때, 테이블을 활용하시오.
+        // ex) 5 
+        // 5 * 1 = 5
+        // 5 * 2 = 10
+        // ...
+        // 5 * 9 = 45
+
+        let n = Number(prompt(`구구단의 단을 입력하시오.`));
+
+        document.write(`<table>`);
+        document.write(`<tr><th>${n}단</th></tr>`);
+        for(let i=1; i<=9; i++) {
+            //console.log(`${n} * ${i} = ${n*i}`);
+            document.write(`<tr><td>${n} * ${i} = ${n*i}</td></tr>`);
+        }
+        document.write(`</table>`);
+    </script>
+</body>
+</html>

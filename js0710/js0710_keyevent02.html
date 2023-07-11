@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Event 2번</title>
+    <style>
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let txt = document.querySelector("#txt");
+
+            let print = (event) => {
+                let output = "";
+                output += `ctrl: ${event.ctrlKey}<br>`;
+                output += `shift: ${event.shiftKey}<br>`;
+                output += `alt: ${event.altKey}<br>`;
+                output += `code: ${typeof(event.code) !== "undefined" ? event.code: event.keyCode}<br>`
+                txt.innerHTML = output;
+            }
+
+            document.addEventListener("keydown", print);
+            document.addEventListener("keyup", print);
+        })
+    </script>
+</head>
+<body>
+    <h1>키 이벤트 - keydown, keyup</h1>
+    <h3>키보드에서 어떤 키를 눌렀는지를 파악하는 프로그램</h3>
+    <div id="txt"></div>
+</body>
+</html>

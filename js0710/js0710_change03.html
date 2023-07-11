@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Event 3번</title>
+    <style>
+        #tUnit { background-color: #ccc;}
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let meter = document.querySelector("#meter");
+            let tUnit = document.querySelector("#tUnit");
+            let sUnit = document.querySelector("#sUnit"); // option의 배열
+            let msg = document.querySelector("#msg");
+            let [mValue, sValue] = [0, 0]; // let mValue = 0, sValue = 0;
+
+            // meter에서 문자열을 입력했을 때의 유효성 검사
+            let isCheck = () => {
+                if(isNaN(mValue)) {
+                    msg.textContent = "숫자가 아닌 문자를 입력하였습니다.";
+                    msg.style.color = "red";
+                    tUnit.value = "";
+                    return true;
+                } else {
+                    msg.textContent = "";
+                    return false;
+                }
+            }
+
+            // keyup 이벤트 - meter
+            meter.addEventListener("keyup", (event) => {
+                mValue = Number(event.currentTarget.value); // meter의 값
+                sValue = Number(sUnit.options[sUnit.selectedIndex].value); // sUnit에서 선택한 값
+                
+                if(isCheck()) return;
+                tUnit.value = mValue * sValue;
+            })
+
+            // change 이벤트 - sUnit
+            sUnit.addEventListener("change", (event) => {
+                let options = event.currentTarget.options; // option의 배열10d
+                let idx = event.currentTarget.options.selectedIndex; // 배열 중에서 선택한 인덱스
+                sValue = Number(options[idx].value); // 선택한 인덱스의 값
+
+                if(isCheck()) return;
+                tUnit.value = mValue * sValue;
+             })
+        })
+    </script>
+</head>
+<body>
+    <h2>Change Event 3번 - change, keyup</h2>
+    <h3>단위 변환 (미터를 여러 가지 단위로 변환)</h3>
+    <p>meter를 입력하면 mile, feet, yard로 변환합니다.</p>
+    <input type="text" id="meter"> -> <input type="text" id="tUnit" readonly> 
+    <select name="" id="sUnit">
+        <option value="0.000621371">mile</option>
+        <option value="3.28084">feet</option>
+        <option value="1.09361">yard</option>
+    </select>
+    <br>
+    <p id="msg"></p>
+</body>
+</html>

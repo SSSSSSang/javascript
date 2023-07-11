@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 2번</title>
+</head>
+<body>
+    <h2>함수 2번</h2>
+    <script>
+        // 함수 외부 -> 전역 변수(Global Variable)
+        let a = "globalA", b = "globalB", c = "globalC";
+
+        function f1() {
+            // 함수 내부 -> 지역 변수(Local Variable)
+            let b = "localB", d = "localD";
+
+            console.log("--- 함수 내부 ---");
+            console.log(`a = ${a}`); // globalA -> 함수 내부에서 함수 외부의 전역 변수 사용할 수 있음.
+            console.log(`b = ${b}`); // localB -> 함수 내부와 함수 외부에 모두 선언되어 있는 변수는 함수 내부의 지역 변수를 우선적으로 사용함.
+            console.log(`c = ${c}`); // globalC -> 함수 내부에서 함수 외부의 전역 변수 사용할 수 있음.
+            console.log(`d = ${d}`); // localD
+        }
+        f1();
+
+        console.log("--- 함수 외부 ---");
+        console.log(`a = ${a}`);
+        console.log(`b = ${b}`);
+        console.log(`c = ${c}`);
+        // 함수 외부에서는 함수 내부에 있는 지역 변수를 사용할 수 없음.
+        // console.log(`d = ${d}`); // Uncaught ReferenceError: d is not defined
+
+    </script>
+</body>
+</html>

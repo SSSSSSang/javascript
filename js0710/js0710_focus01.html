@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Event 1번</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let txt = document.querySelector("#txt");
+            let no = document.querySelector("#no");
+            let timer = 0;
+
+            // 포커스를 얻었을 때
+            txt.addEventListener("focus", (event) => {
+                timer = setInterval(() => {
+                    no.textContent = txt.value.length;
+                },100);
+            })
+
+            // 포커스를 잃었을 때
+            txt.addEventListener("blur", (event) => {
+                clearInterval(timer);
+            })  
+        })
+    </script>
+</head>
+<body>
+    <h1>Focus 이벤트 - Focus, Blur, 타이머 함수</h1>
+    <h3>입력 상자에 입력한 글자수 세기</h3>
+    입력한 글자수: <span id="no"></span><br><br>
+    <textarea id="txt" cols="50" rows="5"></textarea>
+</body>
+</html>

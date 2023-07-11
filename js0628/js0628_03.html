@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 응용 3번</title>
+</head>
+<body>
+    <h2>반복문 응용 3번</h2>
+    <script>
+        // 문제3. 정수를 입력하고, 입력한 개수만큼의 피보나치 수열을 화면으로 출력하시오.
+        // 예를 들어 11이라고 입력하여 피보나치 수열 11개를 출력하면 됨.
+        // fibonacci 수열: 1 1 2 3 5 8 13 21 34 55 89
+        // 풀이시간: 5분, 반복문의 활용 문제
+        /*
+        let n = Number(prompt("피보나치 수열의 개수를 입력하시오."));
+        let n1 = 1, n2 = 1, n3;
+        // n3 = n1 + n2
+        
+        document.write(`${n1} ${n2} `)
+        for(let i=1; i<=n-2; i++) {
+            n3 = n1 + n2;
+            document.write(`${n3} `)
+            n1 = n2;
+            n2 = n3;
+        }
+        */
+    
+        // 문제4. 문자열을 입력하고, 그 문자열을 거꾸로 콘솔로 출력하시오.
+        // 입력: hello -> 출력: olleh
+        // 반복문 활용 문제
+        // 문자열의 길이: str.length
+        // s = s.split("") -> 문자열을 문자열의 배열로 만들어 주는 함수
+        // s = "hello" -> h: s[0], e: s[1], l: s[2], l: s[3], o: s[4], s[s.length-1]
+        // 풀이시간) 5분
+
+        let s = prompt("문자열을 입력하시오. 역순으로 출력합니다.");
+        s = s.split(""); // 문자열을 문자열의 배열로 만듦
+        
+        // 1번 방법 - swapping 기법
+        /*
+        let t; // 임시 변수
+        console.log(`reverse 전 문자열: ${s}`);
+        for(let i=0; i<parseInt(s.length/2); i++) {
+            // 두 개의 문자를 swapping
+            t = s[i];
+            s[i] = s[s.length-1-i];
+            s[s.length-1-i] = t;
+        }
+        console.log(`reverse 후 문자열: ${s}`);
+        */
+
+        // 2번 방법 - 문자열의 맨 뒤에서부터 출력함
+        let s2 = "";
+        console.log(`reverse 전 문자열: ${s}`);
+        for(let i=s.length-1; i>=0; i--) {
+            s2 += s[i];
+        }
+        console.log(`reverse 후 문자열: ${s2}`);
+
+    </script>
+</body>
+</html>

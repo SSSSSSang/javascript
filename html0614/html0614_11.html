@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>radio, checkbox 활용</title>
+    </head>
+    <body>
+        <!-- 전공: 1개만 선택, radio, 취미: 1개 이상, checkbox, 특기: select, 여러개, 전송버튼, 취소버튼 -->
+        <h2>학생의 정보를 입력하시오.</h2>
+        <form action="html0614_01.html" method="get">
+            <fieldset>
+                <legend>학생 이름</legend>
+                Q1. 학생의 이름을 입력하시오.<br>
+                <label for="name">이름</label> : <input type="text" name="name" placeholder="학생 이름 입력" id="name"><br><br>
+            </fieldset><br>
+            <fieldset>
+                <legend>전공</legend>
+                Q2. 학생의 전공을 선택하시오.<br>
+                <input type="radio" name="major" value="m1" id="ma1"> <label for="ma1">국어국문학과</label><br>
+                <input type="radio" name="major" value="m2" id="ma2"> <label for="ma2">영어영문학과</label><br>
+                <input type="radio" name="major" value="m3" id="ma3"> <label for="ma3">물리학과</label><br>
+                <input type="radio" name="major" value="m4" id="ma4"> <label for="ma4">체육학과</label><br>
+                <input type="radio" name="major" value="m5" id="ma5" checked> <label for="ma5">전자통신학과</label><br>
+                <input type="radio" name="major" value="m6" is="ma6"> <label for="ma6">기타</label><br><br>
+            </fieldset><br>
+            <fieldset>
+                <legend>취미</legend>
+                Q3. 학생의 취미를 선택하시오.<br>
+                <input type="checkbox" name="hobby" value="h1" id="ho1"> <label for="ho1">등산</label><br>
+                <input type="checkbox" name="hobby" value="h1" id="ho2"> <label for="ho2">수영</label><br>
+                <input type="checkbox" name="hobby" value="h3" id="ho3"> <label for="ho3">독서</label><br>
+                <input type="checkbox" name="hobby" value="h4" id="ho4"> <label for="ho4">음악감상</label><br>
+                <input type="checkbox" name="hobby" value="h5" id="ho5"> <label for="ho5">영화감상</label><br>
+                <input type="checkbox" name="hobby" value="h6" id="ho6"> <label for="ho6">기타</label><br><br>
+            </fieldset><br>
+            <fieldset>
+                <legend>특기</legend>
+                Q4. 학생의 특기를 선택하시오.<br>
+                <select name="specialty" multiple size="3">
+                    <option value="s1">골프</option>
+                    <option value="s2">노래</option>
+                    <option value="s3">댄스</option>
+                    <option value="s4">태권도</option>
+                    <option value="s5">스키</option>
+                    <option value="s6">기타</option>
+                </select>
+            </fieldset><br>
+            <fieldset>
+                <legend>전송 및 취소</legend>
+                <input type="submit" value="전송">&nbsp;&nbsp;
+                <input type="reset" value="취소">
+            </fieldset>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2차원 반복문</title>
+</head>
+<body>
+    <h2>2차원 반복문</h2>
+    <script>
+        // 2차원 반복문, 중첩 반복문 - 반복문 안에 반복문이 들어가 있는 형태.
+        // 2차원 배열을 다루기 위해서는 2차원 반복문을 사용해야 함.
+
+        // 문제1. 2단부터 9단까지를 출력하시오. (2차원 반복문 활용)
+        for(let i=2; i<=9; i++) {
+            console.log(`--- ${i}단 ---`);
+            for(let j=1; j<=9; j++) {
+                console.log(`${i} * ${j} = ${i*j}`);
+            }
+        }
+    </script>
+</body>
+</html>

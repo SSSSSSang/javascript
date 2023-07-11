@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 4번</title>
+</head>
+<body>
+    <h2>함수 4번</h2>
+    <script>
+        // 문제1. 입력한 정수까지의 n!(팩토리얼)을 구하는 함수를 생성하여 사용하시오.
+        // 함수명: getFact()
+        // 출력화면 설계 -> 
+        // 5를 입력했다면
+        // 1! = 1
+        // 2! = 2
+        // 3! = 6
+        // 4! = 24
+        // 5! = 120
+
+        /*
+        let n = Number(prompt("정수를 입력하시오. 팩토리얼을 구합니다."));
+
+        // 함수 정의(생성)
+        function getFact(n) { 
+            for(let i=1; i<=n; i++) {
+                let fact = 1;
+                for(let j=1; j<=i; j++) {
+                    fact *= j;
+                }
+                console.log(`${i}! = ${fact}`);
+            }
+        }
+
+        // 함수 호출(사용)
+        getFact(n);
+        */
+
+        // 문제2. 2개의 정수와 1개의 산술 연산자를 입력하고, 이것을 매개변수로 전달하여 계산하는
+        // 함수를 생성하여 사용하시오.
+        // 함수명: calcNumber()
+        // 출력 화면 설계: 5 * 2 = 10
+
+        let n1 = Number(prompt("첫번째 정수를 입력하시오."));
+        let n2 = Number(prompt("두번째 정수를 입력하시오."));
+        let op = prompt("연산자를 입력하시오. 두 정수의 산술 연산을 구합니다.", "+");
+
+        // 함수 정의(생성)
+        function calcNumber(n1, n2, op) {
+            let result = 0;
+            switch(op) {
+            case "+": result = n1 + n2; break;
+            case "-": result = n1 - n1; break;
+            case "*": result = n1 * n2; break;
+            case "/": result = n1 / n2; break;
+            case "%": result = n1 % n2; break;
+            }
+            console.log(`${n1} ${op} ${n2} = ${result}`);
+        }
+
+        // 함수 호출(사용)
+        calcNumber(n1, n2, op);
+
+    </script>
+</body>
+</html>

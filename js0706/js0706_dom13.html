@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 13번</title>
+    <style>
+        #container { width: 800px; margin: 0 auto; text-align: center;}
+        #photo { width: 600px; height: 400px;}
+        #btns button { 
+            width: 90px; height: 35px; margin: 0 30px;
+            font-weight: bold; cursor: pointer;
+        }
+        #btns button:nth-child(1) { background-color: black; color: white; border: none;}
+        #btns button:nth-child(2) { background-color: white; border: 2px solid black;}
+    </style>
+    <script>
+        // 퀴즈1번) 버튼을 클릭했을 때, 이미지가 변경되도록 하시오.
+        // 함수, 배열, 조건문, DOM 객체를 활용하는 방법
+        
+        // 배열의 인덱스, 전역변수로 선언
+        let idx = 0;
+        
+        function moveImage(x) {
+            // 이미지의 배열
+            let imgs = ["jeju01.jpg", "jeju02.jpg", "jeju03.jpg", "jeju04.jpg", 
+                        "jeju05.jpg", "jeju06.jpg", "jeju07.jpg", "jeju08.jpg", "jeju09.jpg"];
+
+            // 인덱스의 감소/증가
+            // 1번 방법 - 0번과 끝번에서 멈추는 방법
+            /*
+            if(x) {  // 이전 버튼 -> 인덱스 감소
+                if(idx == 0) {
+                    alert("첫번째 이미지입니다.");
+                } else {
+                    --idx;
+                }
+            } else { // 다음 버튼 -> 인덱스 증가
+                if(idx == imgs.length-1) {
+                    alert("마지막 이미지입니다.");
+                } else {
+                    ++idx;
+                }
+            }
+            */
+
+            // 2번 방법 - 회전하는 방법
+            if(x) {  // 이전 버튼 -> 인덱스 감소
+                if(idx == 0) {
+                    idx = imgs.length - 1;
+                } else {
+                    --idx;
+                }
+            } else { // 다음 버튼 -> 인덱스 증가
+                if(idx == imgs.length-1) {
+                    idx = 0;
+                } else {
+                    ++idx;
+                }
+            }
+
+            // 결과 확인, 에러 검증
+            console.log(`idx: ${idx}`);
+            console.log(`image: ${imgs[idx]}`);
+
+            // 이미지를 변경
+            let photo = document.getElementById("photo");
+            photo.src = "images/" + imgs[idx];
+        }
+
+    </script>
+</head>
+<body>
+    <div id="container">    
+        <h2>이미지 갤러리</h2>
+        <p>버튼을 클릭하면 이미지가 바뀝니다.</p>
+        <img src="images/jeju01.jpg" id="photo">
+        <br><hr><br>
+        <div id="btns">
+            <button onclick="moveImage(1)">이전</button>
+            <button onclick="moveImage(0)">다음</button>
+        </div>
+    </div>
+</body>
+</html>

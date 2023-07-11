@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 1번</title>
+    <style>
+        #box { height: 200px;}
+    </style>
+    <script>
+        // 브라우저창이 시작될 때 실행하는 함수
+        window.onload = function() {
+            // 2번 - 고전 이벤트 모델
+            let btnOld = document.getElementById("btnOld");
+
+            // 2-1. 1번 방법 - 익명 함수: 함수의 재사용 불가하지만, 관리가 간편, 1회용으로 사용함.
+            /*
+            btnOld.onclick = function() {
+                let box = document.getElementById("box");
+                box.style.backgroundColor = "skyblue";
+                box.style.borderRadius = "50%";
+                box.style.border = "3px solid blue";
+            }
+            */
+
+            // 2-2. 2번 방법 - 선언 함수: 다른 이벤트에서 이 함수를 재사용할 수 있음.
+            btnOld.onclick = varyBox;
+
+            function varyBox() {
+                let box = document.getElementById("box");
+                box.style.backgroundColor = "skyblue";
+                box.style.borderRadius = "50%";
+                box.style.border = "3px solid blue";
+            }
+
+            // 3번 - 표준 이벤트 모델
+            let btnStd = document.getElementById("btnStd");
+
+            // 3-1-1. 1번 방법 - 익명 함수: 함수의 재사용 불가하지만, 관리가 간편, 1회용으로 사용함.
+            /*
+            btnStd.addEventListener("click", function(){
+                let box = document.getElementById("box");
+                box.style.backgroundColor = "lime";
+                box.style.borderRadius = "50%";
+                box.style.border = "3px solid green";
+            })
+            */
+
+            // 3-1-2. 1번 방법 - 화살표 함수
+            btnStd.addEventListener("click", () => {
+                let box = document.getElementById("box");
+                box.style.backgroundColor = "lime";
+                box.style.borderRadius = "50%";
+                box.style.border = "3px solid green";
+            })
+            
+            // 3-2. 2번 방법 - 선언 함수: 다른 이벤트에서 이 함수를 재사용할 수 있음.
+            /*
+            btnStd.addEventListener("click", replaceBox);
+
+            function replaceBox() { 
+                let box = document.getElementById("box");
+                box.style.backgroundColor = "lime";
+                box.style.borderRadius = "50%";
+                box.style.border = "3px solid green";
+            }
+            */
+        }
+
+        // 1번 - 인라인 이벤트
+        function changeBox() {
+            let box = document.getElementById("box");
+            box.style.backgroundColor = "pink";
+            box.style.borderRadius = "50%";
+            box.style.border = "3px solid red";
+        }
+    </script>
+</head>
+<body>
+    <h2>이벤트 모델</h2>
+    <h3>이벤트를 처리하는 3가지 방법</h3>
+    <div id="box"></div>
+    <hr>
+    1번: 인라인 이벤트 모델 <button onclick="changeBox()">인라인 모델</button><br><br>
+    2번: 고전 이벤트 모델 <button id="btnOld">고전 이벤트 모델</button><br><br>
+    3번: 표준 이벤트 모델 <button id="btnStd">표준 이벤트 모델</button><br><br>
+</body>
+</html>

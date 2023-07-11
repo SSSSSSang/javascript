@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Event 5번</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            //let chk = document.getElementsByName("chk")[0]; // 배열 중에서 0번 인덱스
+            //let link = document.getElementById("link");
+
+            let chk = document.querySelector("[name=chk]"); // 배열 중에서 첫번째
+            let link = document.querySelector("#link");
+            let flag = false;
+
+            // change 이벤트 - 체크되었다면 true, 체크되지 않았다면 false
+            chk.addEventListener("change", (event) => {
+                flag = event.currentTarget.checked;
+            })
+
+            // a태그의 디폴트 이벤트를 중지/실행
+            link.addEventListener("click", (event) => {
+                if(!flag) {
+                    event.preventDefault(); // 디폴트 이벤트 중지시키는 메소드
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <h2>Change Event 5번 - checkbox 1개만 사용</h2>
+    <h3>체크했을 때 링크를 활성화하는 프로그램</h3>
+    <input type="checkbox" name="chk" id="chk"><label for="chk">링크 활성화</label> 
+    <a href="http://www.naver.com" id="link">네이버</a>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 3번</title>
+</head>
+<body>
+    <h2>함수 3번</h2>
+    <script>
+        // < 기본 함수의 특징 >
+        // 1. 함수의 인수에 대한 느슨한(loose) 검사: 매개변수의 개수가 일치하지 않아도 사용 가능함.
+        // 2. 함수의 호이스팅(hoisting): 함수를 사용하는 시점에는 없지만, 뒤에 정의되어 있는 함수를 끌어당겨서 사용하는 방법
+        // - 기본함수는 가능하지만, 익명함수에서는 불가능
+
+        // 기본 함수 -> 함수 생성 전에 사용할 수 있음.
+        f1(10, 20, 30);
+        f1(45, 50);
+        f1(60);
+        f1();
+        f1(15, 25, 35, 45);
+
+        function f1(x, y, z) {
+            console.log("--- 기본함수 f1() ---")
+            console.log(`1st 매개변수: ${x}`);
+            console.log(`2nd 매개변수: ${y}`);
+            console.log(`3rd 매개변수: ${z}`);
+            console.log("-----");
+        }
+
+        // 익명 함수 -> 함수 생성 전에 사용할 수 없음.
+        // f2(10, 20, 30); // Uncaught ReferenceError: Cannot access 'f2' before initialization
+
+        let f2 = function(x, y, z) {
+            console.log("--- 익명함수 f2() ---")
+            console.log(`1st 매개변수: ${x}`);
+            console.log(`2nd 매개변수: ${y}`);
+            console.log(`3rd 매개변수: ${z}`);
+            console.log("-----");
+        }
+    </script>
+</body>
+</html>

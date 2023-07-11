@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Event 2번</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let food = document.querySelector("#food");
+            let txt = document.querySelector("#txt");
+
+            // select - 다중 선택
+            food.addEventListener("change", (event) => { 
+                let options = event.currentTarget.options; // option의 배열
+
+                // 1번 - 문자열을 활용
+                /*
+                let foods = "";
+                for(let i of options) {
+                    if(i.selected) { // 체크했을 때 -> 음식 추가, 해제했을 때 -> 자동으로 음식이 삭제됨.
+                        foods += i.value + " ";
+                    }
+                }
+                txt.textContent = foods;
+                */
+
+                // 2번 - 배열 활용, for-of문
+                let foods = [];
+                for(let i of options) {
+                    if(i.selected) { // 체크했을 때 -> 음식 추가, 해제했을 때 -> 자동으로 음식이 삭제됨.
+                        foods.push(i.value);
+                    }
+                }
+                txt.textContent = foods;   
+                             
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>Change Event 1번 - select (다중 선택)</h1>
+    <h3>좋아하는 음식을 선택하시오.</h3>
+    <select name="" id="food" multiple>
+        <option>떡볶이</option>
+        <option>김밥</option>
+        <option>라면</option>
+        <option>어묵</option>
+        <option>튀김</option>
+        <option>우동</option>
+    </select>
+    <br><br>
+    선택한 메뉴: <span id="txt"></span><br>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Event 4번</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            //let pets = document.getElementsByName("pets"); // 배열
+            //let txt = document.getElementById("txt");
+
+            let pets = document.querySelectorAll("[name=pets]"); // 배열
+            let txt = document.querySelector("#txt");
+            //console.log(pets);
+            //console.log(txt);
+
+            // 1번 - for-of문
+            /*
+            for(let i of pets) {
+                i.addEventListener("change", (event) => {
+                    if(event.currentTarget.checked) {
+                        txt.textContent = event.currentTarget.value;
+                        return;
+                    }
+                })
+            }
+            */
+
+            // 2번 - forEach()
+            pets.forEach(v=> {
+                v.addEventListener("change", (event) => {
+                    if(event.currentTarget.checked) {
+                        txt.textContent = event.currentTarget.value;
+                        return;
+                    }
+                })
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <h2>Change Event 4번 - radio</h2>
+    <h3>다음 중 좋아하는 애완동물을 선택하시오. (단일 선택)</h3>
+    <input type="radio" name="pets" value="강아지" id="p1"><label for="p1">강아지</label>
+    <input type="radio" name="pets" value="고양이" id="p2"><label for="p2">고양이</label>
+    <input type="radio" name="pets" value="햄스터" id="p3"><label for="p3">햄스터</label>
+    <input type="radio" name="pets" value="거북이" id="p4"><label for="p4">거북이</label>
+    <input type="radio" name="pets" value="카멜레온" id="p5"><label for="p5">카멜레온</label>
+    <hr>
+    선택한 애완동물: <span id="txt"></span>
+
+</body>
+</html>

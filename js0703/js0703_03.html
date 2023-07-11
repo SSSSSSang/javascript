@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 객체 1번</title>
+</head>
+<body>
+    <h2>Math 객체 1번</h2>
+    <script>
+        // Math 객체: 수학과 관련된 다양한 프로퍼티와 메소드를 정의해 놓은 클래스(객체)
+        // 1. Math.random(): 난수, 무작위수, 임의의 수를 발생하는 메소드
+        // 0 ~ 1 미만의 수를 무작위로 발생함. 0 ~ 0.9999....의 수를 무작위로 발생함. 
+        let n1 = Math.random();
+        console.log(n1);
+        // 0 ~ 9.9999... 사이의 난수
+        n1 = Math.random() * 10;
+        console.log(n1);
+        // 0 ~ 9 사이의 난수
+        n1 = parseInt(Math.random() * 10);
+        console.log(n1);
+        // 1 ~ 10 사이의 난수
+        n1 = parseInt(Math.random() * 10) + 1; 
+        // 50 ~ 100 사이의 난수, 0 ~ 50.9999... -> 0 ~ 50 -> 50 ~ 100
+        n1 = parseInt(Math.random() * 51) + 50;
+        console.log("-----");
+
+        // 2. Math.round(): 소수점 첫째자리에서 반올림하여 정수로 만드는 메소드
+        console.log(Math.round(4.9)); // 5
+        console.log(Math.round(4.5)); // 5
+        console.log(Math.round(4.4)); // 4
+        console.log(Math.round(4.1)); // 4
+        console.log(Math.round(-4.2)); // -4
+        console.log(Math.round(-4.7)); // -5
+        console.log("-----");
+
+        // 3. Math.ceil(): 소수점 첫째자리에서 무조건 올림하여 정수로 만드는 메소드
+        console.log(Math.ceil(4.8)); // 5
+        console.log(Math.ceil(4.5)); // 5
+        console.log(Math.ceil(4.1)); // 5
+        console.log(Math.ceil(4.0)); // 4
+        console.log(Math.ceil(-4.2)); // -4
+        console.log(Math.ceil(-4.7)); // -4
+        console.log("-----");
+
+        // 4. Math.floor(): 소수점 첫째자리에서 무조건 내림하여 정수로 만드는 메소드
+        console.log(Math.floor(4.8)); // 4
+        console.log(Math.floor(4.5)); // 4
+        console.log(Math.floor(4.1)); // 4
+        console.log(Math.floor(4.0)); // 4
+        console.log(Math.floor(-4.2)); // -5
+        console.log(Math.floor(-4.7)); // -5
+        console.log("-----");
+
+        // 5. Math.trunc(): 소수점 이하를 모두 버려서 정수로 만드는 메소드
+        console.log(Math.trunc(4.8)); // 4
+        console.log(Math.trunc(4.5)); // 4
+        console.log(Math.trunc(4.1)); // 4
+        console.log(Math.trunc(4.0)); // 4
+        console.log(Math.trunc(-4.2)); // -4
+        console.log(Math.trunc(-4.7)); // -4
+        console.log("-----");
+
+        // Math.sin(): 사인값을 구하는 메소드, cos(), tan()
+        // 6. Math.sign(): 숫자를 양수, 음수, 0인지의 여부를 판별
+        console.log(Math.sign(4));  // 1
+        console.log(Math.sign(-4)); // -1
+        console.log(Math.sign(0));  // 0
+        console.log("-----");
+
+        // 7. Math.pow(): 숫자의 승수를 구하는 메소드
+        console.log(Math.pow(4, 3)); // 64, 4의 3승
+        console.log(Math.pow(3, 4)); // 81, 3의 4승
+        console.log(Math.pow(3, 3.3)); // 3의 3.3승
+        console.log(Math.pow(3.5, 4)); // 3.5의 4승
+        console.log(Math.pow(3.5, 4.3)); // 3.5의 4.3승
+        console.log(Math.pow(-3, 3)); // -3의 3승 -> -27
+        console.log(Math.pow(-3, -3)); // -3의 -3승 -> -0.037037037037037035
+        console.log(Math.pow(0, 5)); // 0
+        console.log(Math.pow(5, 0)); // 1 -> 모든 수의 0승은 1
+        console.log("-----");
+        
+        // 8. Math.sqrt(): 숫자의 루트값, √ (root)
+        console.log(Math.sqrt(9)); // 3
+        console.log(Math.sqrt(16)); // 4
+        console.log(Math.sqrt(5)); // 2.23606797749979
+        console.log("-----");
+
+        // 9. Math.abs(): 숫자의 절대값
+        console.log(Math.abs(5)); // 5
+        console.log(Math.abs(-5)); // 5
+        console.log("-----");
+
+        // 10. Math.max(): 숫자들의 최대값
+        // Math.min(): 숫자들의 최소값
+        console.log(Math.max(84, 97, 55, 73, 68)); // 97
+        console.log(Math.min(84, 97, 55, 73, 68)); // 55
+
+        let arr = [84, 97, 55, 73, 68];
+        console.log(Math.max(arr)); // NaN
+        console.log(Math.max(...arr)); // 전개 연산자, 97
+
+        console.log(Math.min(arr)); // NaN
+        console.log(Math.min(...arr)); // 전개 연산자, 55
+
+        // 11. Math.PI: 원주율
+        console.log(Math.PI); // 3.141592653589793 -> 소수점 15자리
+
+    </script>
+</body>
+</html>

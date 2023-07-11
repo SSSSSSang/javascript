@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 </title>
+    <style>
+        #box { height: 200px;}
+    </style>
+    <script>
+        // 퀴즈1) 버튼을 눌렀을 때, box에 음표를 추가하는 함수를 작성하시오. (함수 2개 사용)
+        function insertMusic1() {
+            let box = document.getElementById("box");
+            let newImg = document.createElement("img"); // img태그 생성
+            newImg.src = "images/m1.png";               // img태그에 이미지를 결합 -> 프로퍼티 사용
+            //newImg.setAttribute("src", "images/m1.png");  // img태그에 이미지를 결합 -> 메소드 사용
+            box.appendChild(newImg);                    // p태그에 이미지를 결합
+        }
+
+        function insertMusic2() {
+            let box = document.getElementById("box");
+            let newImg = document.createElement("img"); // img태그 생성
+            newImg.src = "images/m2.png";               // img태그에 이미지를 결합
+            //newImg.setAttribute("src", "images/m2.png");  // img태그에 이미지를 결합 -> 메소드 사용
+            box.appendChild(newImg);                    // p태그에 이미지를 결합
+        }
+
+        // 퀴즈2) 버튼을 눌렀을 때, box에 음표를 추가하는 함수를 작성하시오. (함수 1개 사용)
+        function insertNote(x) {
+            let box = document.getElementById("box");
+            let newImg = document.createElement("img");
+            if(x) {
+                newImg.src = "images/m1.png";
+            } else {
+                newImg.src = "images/m2.png";
+            }
+            box.appendChild(newImg);
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h2>DOM - 태그 요소의 추가</h2>
+        <h3>세상의 모든 음악</h3>
+        <p>버튼을 클릭하면 음표가 추가됩니다.</p>
+        <span>1번 방법(함수2개 사용)</span>
+        <button onclick="insertMusic1()">음표1번</button>
+        <button onclick="insertMusic2()">음표2번</button>
+        <hr>
+        <span>2번 방법(함수1개 사용)</span>
+        <button onclick="insertNote(1)">음표1번</button>
+        <button onclick="insertNote(0)">음표2번</button>
+        <hr>
+        <div id="box"></div>
+        <hr>
+        <p>음악처럼 즐겁게 공부합시다!</p>
+    </div>
+</body>
+</html>

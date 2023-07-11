@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map 객체 1번</title>
+</head>
+<body>
+    <h2>Map 객체 1번</h2>
+    <script>
+        // Map 객체의 특징: 맵의 데이터는 키(key)와 값(value)의 쌍으로 구성.
+        // - 키를 통해서 값을 찾는 구조. 
+        // - 키는 중복을 허용하지 않음(키는 유일해야 함), 값은 중복을 허용함. 
+
+        // 문제1) 학생이름(key)에 대한 점수(value)를 저장하는 Map을 생성하고, 활용하시오.
+        // Map() 객체 생성
+        let map = new Map();
+        
+        // map에 데이터 추가
+        map.set("이영진", 95);
+        map.set("정혜인", 97);
+        map.set("이혜정", 88);
+        map.set("이채영", 75);
+        map.set("문지인", 72);
+        map.set("박하나", 73);
+
+        // map의 데이터 확인
+        console.log(map);
+
+        // map의 개수 확인
+        console.log(`map의 개수: ${map.size}`);
+
+        // key를 통해서 value를 획득
+        console.log(`정혜인의 점수: ${map.get("정혜인")}`);
+        console.log(`이영진의 점수: ${map.get("이영진")}`);
+        console.log(`최여진의 점수: ${map.get("최여진")}`); // undefined -> 존재하지 않는 데이터
+
+        // key를 확인하여 존재 여부를 파악 -> 논리값
+        console.log(`문지인 유무: ${map.has("문지인")}`); // true -> 존재하는 데이터
+        console.log(`장진희 유무: ${map.has("장진희")}`); // false -> 존재하지 않는 데이터
+
+        // key를 통해서 데이터를 삭제
+        map.delete("박하나"); // true -> 존재하는 데이터
+        console.log(map);
+        map.delete("최윤영"); // false -> 존재하지 않는 데이터
+        console.log(map);
+
+        // 중복된 키를 추가 -> 중복된 키는 허용하지 않음
+        // -> map에서 수정(업데이트)하는 방법으로 사용됨.
+        map.set("정혜인", 85); // 정예인 키에 대해서 나중에 넣은 값으로 교체함.
+        console.log(map);
+
+        // 중복된 값을 추가 -> 중복된 값은 허용함.
+        map.set("최여진", 88);
+        console.log(map);
+        console.log("-----");
+
+        // map의 모든 데이터 삭제
+        //map.clear();
+        //console.log(map);
+
+        // 출력 1번 - for-of문 사용
+        for(let i of map) {
+            //console.log(i); // ['이영진', 95] -> 각각의 데이터는 키와 값의 배열로 구성
+            console.log(`${i[0]} : ${i[1]}`); // key: i[0], value: i[1]
+        }
+        console.log("-----");
+
+        // 출력 2번 - forEach() 메소드 사용
+        // map에서 forEach((value, key, map)=>) -> 매개변수에는 value, key, map 순으로 적어줌. map은 생략가능
+        map.forEach(function(v, k) {
+            console.log(`${k} : ${v}`);
+        });
+        console.log("-----");
+        map.forEach((v, k)=> console.log(`${k} : ${v}`));
+
+    </script>
+</body>
+</html>

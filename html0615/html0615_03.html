@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>input 태그의 중요속성, 표시문자</title>
+    </head>
+    <body>
+        <h2>input 태그의 중요속성, 표시 문자</h2>
+        <form action="html0615_01.html" method="get">
+            <fieldset>
+                <legend>태그의 중요속성</legend>
+                아이디 : <input type="text" name="id" autofocus required placeholder="아이디 필수 입력"><br>
+                이름 : <input type="text" name="name" required><br>
+                비밀번호 : <input type="password" name="pwd" required><br>
+                전공 : <input type="text" name="major" value="컴퓨터공학과" readonly><br>
+                학년 : <input type="text" name="year" value="3" disabled>
+            </fieldset>  
+            
+            <hr>
+            <input type="submit" value="확인">&nbsp;&nbsp;
+            <input type="reset" value="취소">
+        </form>
+        <br><hr>
+        <h2>표시문자</h2>
+        <p>
+            띄워쓰기: &nbsp;<br>
+            &lt; <br>
+            &gt; <br>
+            &amp; <br>
+            &quot;
+        </p>
+    </body>
+</html>

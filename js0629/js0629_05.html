@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 3번</title>
+</head>
+<body>
+    <h2>함수 3번</h2>
+    <script>
+        // 함수를 생성하는 3가지 방법
+        // 1. function 키워드와 함수명을 사용하여 명시적으로 정의하는 방법
+        // 직각사각형의 면적을 구하는 함수
+        console.log(`Area1: ${getArea1(10, 8)}`);
+        function getArea1(width, height) {
+            return width * height;
+        }
+        console.log(`면적1: ${getArea1(10, 7)}`);
+
+        // 2. 함수 리터럴으로 정의하는 방법, 익명(Anonymous)함수로 정의하는 방법
+        console.log(`Area2: ${getArea2(7, 6)}}`);
+        let getArea2 = function(width, height) {
+            return width * height;
+        }
+        console.log(`면적2: ${getArea2(8, 6)}`);
+
+        // 퀴즈1. js0629_03.html의 학생성적 테이블에 석차를 출력하는 열을 추가하시오.
+
+    </script>
+</body>
+</html>

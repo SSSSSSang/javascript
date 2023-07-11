@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date 객체 1번</title>
+</head>
+<body>
+    <h2>Date 객체 1번</h2>
+    <script>
+        // 1. 날짜 생성 방법: 현재 시스템의 날짜와 시간을 획득해서 사용함.
+        let date1 = new Date();
+        console.log(date1); // Mon Jul 03 2023 16:00:41 GMT+0900 (한국 표준시)
+        console.log(`${date1.getFullYear()}년`); // 2023년
+        // 월은 0 ~ 11까지의 배열로 저장되어 있음. -> 월을 사용할 때는 1을 더하여 보정해서 사용함.
+        console.log(`${date1.getMonth()+1}월`); // 7월
+        console.log(`${date1.getDate()}일`); // 3일
+        console.log(`${date1.getHours()}시`); // 16시 -> 24시간 기준
+        console.log(`${date1.getMinutes()}분`); // 10분
+        console.log(`${date1.getSeconds()}초`); // 44초
+        console.log(`${date1.getMilliseconds()}밀리초`); // 819밀리초 -> 1000분 1초
+        console.log(`${date1.getTimezoneOffset()}`); // -540, -540분/60분 -> -9시간
+
+        // 일: 0, 월: 1, 화: 2, 수: 3, 목: 4, 금: 5, 토: 6
+        // 요일은 0 ~ 6까지의 배열로 저장되어 있음. -> 요일을 생성하여야 함.
+        console.log(`${date1.getDay()}`); // 1 -> 월
+        let weeks = ["일", "월", "화", "수", "목", "금", "토"];
+        console.log(`${weeks[date1.getDay()]}요일`); // 월요일
+
+        // 날짜와 시간 출력 방법
+        console.log(date1); // Mon Jul 03 2023 17:00:48 GMT+0900 (한국 표준시)
+        console.log(date1.toLocaleString()); // 2023. 7. 3. 오후 5:01:30
+        console.log(date1.toLocaleDateString()); // 2023. 7. 3.
+        console.log(date1.toLocaleTimeString()); // 오후 5:02:44
+        console.log("-----");
+
+        // 2. 날짜 생성 방법: 날짜와 시간을 직접 입력하여 설정하는 방법
+        // 2-1. Date() 생성자를 사용하여 날짜를 직접 설정하는 방법
+        // 월은 1을 빼서 보정하여야 함.
+        let date2 = new Date(2023, 6, 3, 16, 40, 0, 0); // 년 월 일 시 분 초 밀리초를 적접 써주는 방법
+        console.log(date2);
+
+        // 훈련 시작 날짜와 시간
+        // 2023년 5월 23일 09시 30분 0초 0밀리초로 설정
+        let date3 = new Date(2023, 4, 23, 9, 30, 0, 0);
+        console.log(date3); // Tue May 23 2023 09:30:00 GMT+0900 (한국 표준시)
+        console.log(date3.getTime()); // 1684801800000 -> 날짜와 시간에 대한 밀리초
+
+        // 현재시간에 대한 밀리초
+        console.log(date1.getTime()); // 1688370659796
+
+        let passTime = date1.getTime() - date3.getTime();
+        console.log(`훈련 경과 시간: ${passTime} 밀리초`); // 3569029111 밀리초
+        
+        // 초, 분, 시간, 일로 표현하고자 함.
+        console.log(`훈련 경과 시간: ${passTime/1000} 초`); // 3569199.025 초
+        console.log(`훈련 경과 시간: ${passTime/1000/60} 분`); // 59487.63668333333 분
+        console.log(`훈련 경과 시간: ${passTime/1000/60/60} 시간`); // 991.473641388889 시간
+        console.log(`훈련 경과 시간: ${passTime/1000/60/60/24} 일`); // 41.31178914351852 일
+        console.log("-----");
+
+        // 2-2. setter() 메소드를 사용하여 날짜를 직접 설정하는 방법
+        // 2023년 5월 23일 09시 30분 0초 0밀리초로 설정.
+        let date4 = new Date(); // 현재 시스템의 날짜와 시간
+        date4.setFullYear(2023); // 2023년으로 설정
+        date4.setMonth(4); // 5월이면 1을 빼서 보정
+        date4.setDate(23); // 23일로 설정
+        date4.setHours(9); // 9시로 설정
+        date4.setMinutes(30); // 30분으로 설정
+        date4.setSeconds(0); // 0초로 설정
+        date4.setMilliseconds(0); // 0밀리초로 설정
+
+        console.log(date4);
+        console.log(date4.toLocaleString());
+    </script>
+</body>
+</html>

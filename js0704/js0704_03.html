@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 객체 1번</title>
+</head>
+<body>
+    <h2>Array 객체 1번</h2>
+    <script>
+        let a1 = ["정혜인", "이영진", "이혜정", "이채영", "문지인", "박하나"]; // 액셔니스타
+        let a2 = ["이현이", "송해나", "김진경", "차서린", "허경희", "진정선"]; // 구척장신
+
+        // 1. concat(): 배열끼리 연결하여 새로운 배열을 생성하는 메소드
+        let s1 = a1.concat(a2);
+        console.log(s1);
+        console.log(typeof s1); // object -> array
+
+        // 2. join(): 배열의 각 요소를 특정문자(seperator, 구분자)로 연결하여 문자열을 생성하는 메소드
+        let s2 = a1.join("/");
+        console.log(s2);
+        console.log(typeof s2); // string
+
+        // 3. slice(): 배열의 요소를 추출하여 새로운 배열을 생성하는 메소드
+        // sliec(시작번호, 끝번호), 끝번호는 포함하지 않음
+        let s3 = a2.slice(1, 5); // 1번부터 5번 앞까지(4번까지 추출), 5번은 포함하지 않음.
+        console.log(s3);
+        console.log(typeof s3); // object -> array
+
+        // 4. splice(): 배열의 특정 요소를 지정한 요소로 바꾸어 기존 배열에 저장하는 메소드
+        // splice(시작번호, 바꿀 개수, 바꿀 개수 만큼의 바꿀 내용)
+        a1.splice(2, 3, "최여진", "김재화", "장진희");
+        console.log(a1);
+
+        // 5. pop(): 배열의 맨 끝에 있는 요소를 취득하여 삭제하는 메소드
+        console.log(a2.pop()); // '진정선'을 취득하여 삭제
+        console.log(a2); // '진정선'이 삭제되어 있음.
+
+        // 문제1) a2 배열의 모든 요소를 출력하고, 모든 요소를 삭제하시오. pop() 메소드를 활용하시오.
+        while(a2.length != 0) {
+            console.log(a2.pop());
+        }
+        console.log("-----");
+        console.log(a2);
+        console.log(`a2의 크기: ${a2.length}`);
+
+        // 6. push(): 지정한 요소를 배열의 끝에 추가하는 메소드
+        // 문제2) a2 배열에 FC월드클라쓰의 멤버 6명을 차례대롤 추가하시오. push() 메소드를 활용하시오.
+        // 에바, 엘로디, 사오리, 라라, 케시, 나티
+        /*
+        a2.push("에바");
+        a2.push("엘로디");
+        a2.push("사오리");
+        a2.push("라라");
+        a2.push("케시");
+        a2.push("나티");
+        */
+        a2.push("에바", "엘로디", "사오리", "라라", "케시", "나티");
+        console.log(a2);
+
+        // 7. shift(): 배열의 맨 앞에 있는 요소를 삭제하는 메소드
+        a2.shift(); // '에바' 삭제
+        console.log(a2);
+
+        // 8. unshift(): 지정한 요소를 배열의 맨 앞에 추가한 메소드
+        a2.unshift("에바");
+        console.log(a2);
+
+        // 9. reverse(): 배열의 요소를 역순으로 만드는 메소드
+        a2.reverse();
+        console.log(a2);
+
+        // 10. sort(): 배열의 요소를 오름차순으로 정렬하는 메소드
+        a2.sort(); // 오름내순 정렬
+        console.log(a2);
+
+        a2.reverse(); // 내림차순 정렬 -> sort()를 사용하여 오름차순으로 정렬한 뒤 revrse() 사용
+        console.log(a2);
+
+        // 11. length: 배열의 길이를 알려주는 프로퍼티
+        console.log(`a2 배열의 길이: ${a2.length}`);
+
+        // 12. toString(): 배열을 문자열로 변환하는 메소드
+        let s4 = a2.toString(); // 케시,엘로디,에바,사오리,라라,나티
+        console.log(s4);
+        console.log(typeof s4); // string
+
+    </script>
+</body>
+</html>

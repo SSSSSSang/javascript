@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Event 6번</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            //let chk = document.getElementsByName("chk")[0]; // 배열의 0번 인덱스 값
+            //let txt = document.getElementById("txt");
+
+            let chk = document.querySelector("[name=chk]");
+            let txt = document.querySelector("#txt");
+            let [timer, cnt] = [0, 0];
+
+            chk.addEventListener("change", (event) => {
+                if(event.currentTarget.checked) { // 체크했을 때 -> 타이머 활성화
+                    timer = setInterval(() => {
+                        txt.textContent = `${cnt++}`;
+                    }, 1000); // 1000 밀리초, 1/1000초
+                } else { // 해제했을 때 -> 타이머 비활성화
+                    clearInterval(timer);
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <h2>Change Event 6번 - checkbox</h2>
+    <h3>타이머 함수를 사용하여 시간을 측정하는 프로그램</h3>
+    <input type="checkbox" name="chk" id="chk"><label for="chk">타이머 활성화</label><br>
+    <h1 id="txt"></h1>
+</body>
+</html>

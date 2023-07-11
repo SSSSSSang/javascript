@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number 객체 1번</title>
+</head>
+<body>
+    <h2>Number 객체 1번</h2>
+    <script>
+        // 1. toString(): 숫자를 문자열로 변환하는 메소드
+        let n1 = 123;
+        console.log(n1);
+        console.log(typeof n1); // number
+        let s1 = n1.toString();
+        console.log(s1);
+        console.log(typeof s1); // string
+
+        // 2. toFixed(): 소수점을 지정한 자리수까지 반올림하여 표현
+        let n2 = 10.656;
+        console.log(n2.toFixed(2)); // 10.66
+        console.log(n2.toFixed(4)); // 10.6560 -> 소수점 4자리로 0을 채워 표현
+        console.log(n2.toFixed(0)); // 11 -> 정수로 반올림하여 표현
+        console.log(n2.toFixed()); // 11 -> 정수로 반올림하여 표현
+        //console.log(n2.toFixed(-1)); // Uncaught RangeError: toFixed() digits argument must be between 0 and 100
+        console.log("-----");
+
+        // 3. toPrecision(): 소수점을 포함한 전체 자리수를 반올림하여 표현
+        console.log(n2.toPrecision(2)); // 11
+        console.log(n2.toPrecision(4)); // 10.66
+        console.log(n2.toPrecision(6)); // 10.6560
+        console.log(n2.toPrecision(3)); // 10.7
+        console.log(n2.toPrecision()); // 10.656 -> 원래값을 그대로 표현
+        //console.log(n2.toPrecision(0)); // Uncaught RangeError: toPrecision() argument must be between 1 and 100
+
+        let n3 = 34567;
+        console.log(n3.toPrecision(4)); // 3.457e+4 -> 34570
+        console.log(n3.toPrecision(3)); // 3.46e+4 -> 34600
+        console.log("-----");
+
+        // 4. toExponential(): 지수승의 형태로 지정한 수만큼을 소수점 이하로 표현
+        console.log(n2.toExponential(0)); // 1e+1, 소수점 없이
+        console.log(n2.toExponential(1)); // 1.1e+1, 소수점 1째자리
+        console.log(n2.toExponential(2)); // 1.07e+1, 소수점 2째자리
+        console.log(n2.toExponential(3)); // 1.066e+1, 소수점 3째자리
+        console.log(n2.toExponential(4)); // 1.0656e+1, 소수점 4째자리
+        console.log(n2.toExponential(5)); // 1.06560e+1, 소수점 5째자리
+        console.log("-----");
+
+        // 5. Number 객체의 프로퍼티
+        console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+        console.log(Number.MIN_VALUE); // 5e-324
+        console.log(Number.POSITIVE_INFINITY); // Infinity, 양의 무한대, ∞
+        console.log(Number.NEGATIVE_INFINITY); // -Infinity, 음의 무한대, -∞
+        console.log(Number.NaN); // NaN
+
+        // 6. isNaN(): NaN인지의 여부를 알려주는 함수
+        let n4 = 10 - "5";
+        console.log(n4); // 5 -> 에러가 아님
+
+        n4 = 10 - "five";
+        console.log(n4); // NaN
+
+        if(isNaN(n4)) {
+            console.log("숫자로 처리가 불가능합니다.");
+        } else {
+            console.log("숫자로 처리가 가능합니다.");
+        }
+
+    </script>
+</body>
+</html>

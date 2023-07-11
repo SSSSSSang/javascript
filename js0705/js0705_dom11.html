@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 11번</title>
+    <style>
+        .title { color: blue; font-size: 1.2em; font-weight: bold;}
+    </style>
+    <script>
+        /*
+        퀴즈1) txt에 여행지를 입력하고, 
+        국내 여행지 버튼을 누르면, "1. 국내 여행지" 아래로 추가되고, 
+        해외 여행지 버튼을 누르면, "2. 해외 여행지" 아래로 추가되도록 작성하시오.
+        */
+        function insertPlace(x) {
+            let txt = document.getElementById("txt");
+            let box1 = document.getElementById("box1");
+            let box2 = document.getElementById("box2");
+
+            let newDiv = document.createElement("div");      // div태그 생성
+            let newTxt = document.createTextNode(txt.value); // 일력값을 텍스트노드로 생성
+            newDiv.appendChild(newTxt);                      // div태그에 텍스트노드를 결합
+
+            // 부모를 기준으로 자식의 앞에 추가하는 방법
+            if(x) {  // 국내 여행지 아래로 추가
+                // 부모.insertBefore(새 태그, 자식) // 새 태그를 부모의 자식 앞에 추가 
+                box1.insertBefore(newDiv, box2); // newDiv를 box1의 자식인 box2의 앞에 추가. 
+            } else { // 해외 여행지 아래로 추가
+                box1.appendChild(newDiv);
+            }
+
+            // 입력 후 처리
+            txt.value = "";
+            txt.focus();
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h2>DOM - 태그 요소의 추가</h2>
+        <h3>꿈꾸는 대로 펼쳐진다. - 하나투어</h3>
+        <div>
+            추천 여행지: <input type="text" id="txt">
+            <button onclick="insertPlace(1)">국내 여행지</button>
+            <button onclick="insertPlace(0)">해외 여행지</button>
+        </div>
+        <hr>
+        <div id="box1">
+            <div class="title">1. 국내 여행지</div>
+        
+            <div id="box2" class="title">2. 해외 여행지</div>
+        </div>
+    </div>
+</body>
+</html>

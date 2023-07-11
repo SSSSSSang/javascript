@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 5번</title>
+    <style>
+
+    </style>
+    <script>
+        /*
+        퀴즈1번) 전구 점등 버튼을 클릭했을 때, light에 전구가 켜진 이미지를 나타내고, 
+        전구 소등 버튼을 클릭했을 때, light에 전구가 꺼진 이미지를 나타내도록 하시오.
+        함수명: lightOn, lightOff, changeLight, turnLight, turnOn, turnOff
+        */
+        // 1번 방법 - 버튼 2개, 함수 2개
+        // 점등 
+        function lightOn() {
+            let imgTag = document.getElementById("light");
+            imgTag.src = "images/lighton.png";
+        }
+        // 소등
+        function lightOff() {
+            let imgTag = document.getElementById("light");
+            imgTag.src = "images/lightoff.png";
+        }
+
+        // 2번 방법 - 버튼 2개, 함수 1개
+        function changeLight(x) { 
+            let imgTag = document.getElementById("light");
+
+            if(x) { // 점등
+                imgTag.src = "images/lighton.png";
+            } else { // 소등
+                imgTag.src = "images/lightoff.png";
+            }
+        }
+
+        // 3번 방법 - 버튼 1개, 함수 1개
+        function turnLight() { 
+            let imgTag = document.getElementById("light");
+            let btnTag = document.getElementById("btnLight");
+
+            if(btnLight.innerHTML == "점등") { // 점등
+                imgTag.src = "images/lighton.png";
+                btnTag.innerHTML = "소등";
+                btnTag.style.backgroundColor = "lightgray";
+            } else { // 소등
+                imgTag.src = "images/lightoff.png";
+                btnTag.innerHTML = "점등";
+                btnTag.style.backgroundColor = "hotpink";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>전구의 점등과 소등</h2>
+    <img src="images/lightoff.png" width="200" height="200" id="light">
+    <hr>
+    <span>1번 방법</span>
+    <button onclick="lightOn()">전구 점등</button>
+    <button onclick="lightOff()">전구 소등</button>
+    <hr>
+    <span>2번 방법</span>
+    <button onclick="changeLight(1)">전구 점등</button>
+    <button onclick="changeLight(0)">전구 소등</button>
+    <hr>
+    <span>3번 방법</span>
+    <!-- 토글(toggle) 버튼: 1개의 버튼으로 on/off 하는 버튼 -->
+    <button onclick="turnLight()" id="btnLight">점등</button>
+</body>
+</html>

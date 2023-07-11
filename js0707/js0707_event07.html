@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 8번</title>
+    <script>
+        window.onload = function() {
+            let name = document.querySelector("#name");
+            // 포커스를 얻었을 때 -> 커서가 들어간 상태
+            name.addEventListener("focus", function() {
+                name.style.backgroundColor = "beige";
+            })
+            // 포커스를 잃었을 때 -> 커서가 나간 상택
+            name.addEventListener("blur", function() {
+                name.style.backgroundColor = "lightgray";
+                name.value = name.value.toUpperCase();
+            })
+        }
+    </script>
+</head>
+<body>
+    <h2>다양한 이벤트 - focus, blur</h2>
+    영문명 입력: <input type="text" id="name"><br>
+    휴대폰 입력: <input type="text" id="tel">
+</body>
+</html>

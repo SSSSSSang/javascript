@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 9번</title>
+    <style>
+
+    </style>
+    <script>
+        function insertCountry() {
+            let txt1 = document.getElementById("txt1");
+            let txt2 = document.getElementById("txt2");
+
+            // 유효성 검사 (입력값의 누락에 대한)
+            if(!txt1.value) {
+                alert("여행하고 싶은 나라를 입력하시오.");
+                txt1.focus();
+                return;
+            }
+
+            // 입력한 값을 ul 태그 안에 li로 추가
+            let newTag = document.createElement("li");        // [1단계] li태그 생성
+            let newTxt = document.createTextNode(txt1.value); // [2단계] 입력값을 텍스트노드로 저장 
+            newTag.appendChild(newTxt);                       // [3단계] li태그에 텍스트노드를 결합
+            txt2.appendChild(newTag);                         // [4단계] ul태그에 li태그를 결합
+
+            // 입력 후 처리 - 입력값 제거, 포커스 삽입
+            txt1.value = "";
+            txt1.focus();
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h2>DOM - 태그 요소의 추가</h2>
+        <h3>꿈꾸는 대로 펼쳐진다 - 하나투어</h3>
+        <div>
+            여행하고 싶은 나라: <input type="text" id="txt1">
+            <button onclick="insertCountry()">목록 추가</button>
+            <ul id="txt2"></ul>
+        </div>
+    </div>
+</body>
+</html>

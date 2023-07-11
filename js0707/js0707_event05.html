@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 5번</title>
+    <script>
+        function f1(e) {
+            e.preventDefault();
+        }
+    </script>
+</head>
+<body>
+    <h2>Event 5번</h2>
+    <h3>컨텍스트(context) 메뉴 이벤트</h3>
+    <!-- 이미지의 디폴트 이벤트: 오른쪽 마우스를 눌렀을 때 나오는 컨텍스트 메뉴 -->
+    <img src="images/image1.jpg" width="300">
+    <hr>
+    <img src="images/image1.jpg" width="300" oncontextmenu="return false">
+    <hr>
+    <img src="images/image1.jpg" width="300" oncontextmenu="f1(event)">
+</body>
+</html>

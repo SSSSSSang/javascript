@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체 16번</title>
+    <style>
+        #container { width: 550px; margin: 20px auto;}
+        h2 { text-align: center;}
+        #result { height: 50px; background-color: #ccc;}
+    </style>
+    <script>
+        function inputData() {
+            // 1. 전공 선택 - select, 단일 선택
+            let dept = document.chooseForm.dept; // name을 사용
+            //let dept = document.querySelector("#dept"); // id를 사용
+
+            // 1번 방법
+            //let txt1 = dept.options[dept.selectedIndex].value
+
+            // 2번 방법
+            let txt1 = "";
+            for(let i=0; i<dept.length; i++) {
+                if(dept[i].selected) {
+                    txt1 = dept[i].value;
+                    break;
+                }
+            }
+
+            // 확인
+            console.log(`dept의 정체: ${dept}`); // [object HTMLSelectElement] -> select의 배열
+            console.log(`dept의 타입: ${typeof dept}`); // object
+            console.log(`dept의 개수: ${dept.length}`); // 6
+            console.log(`dept에서 선택한 인덱스: ${dept.selectedIndex}`); // 4
+            console.log(`전공 과목: ${txt1}`); // 화학공학
+
+            // 2. 교양 선택 - select, 다중 선택
+            //let subject = document.chooseForm.subject;
+            let subject = document.querySelector("#subject")
+
+            //
+            let txt2 = "";
+            for(let i=0; i<subject.length; i++) {
+                if(subject[i].selected) {
+                    txt2 += subject[i].value + " ";
+                }
+            }
+
+            // 확인
+            console.log(`subject의 정체: ${subject}`); // [object HTMLSelectElement]
+            console.log(`subject의 타입: ${typeof subject}`); // object
+            console.log(`subject의 개수: ${subject.length}`); // 
+            console.log(`교양 과목: ${txt2}`);
+
+            // 3. 결과 출력 - result영역에 결과 출력
+            let result = document.querySelector("#result");
+            result.innerHTML = `전공과목: ${txt1}<br>교양과목: ${txt2}`;
+
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <form action="" name="chooseForm">
+            <h2>DOM - select 태그 선택</h2>
+            <fieldset>
+                <h3>학생의 전공을 선택하시오. (단일선택)</h3>
+                <select name="dept" id="dept">
+                    <option value="컴퓨터공학">컴퓨터공학</option>
+                    <option value="기계공학">기계공학</option>
+                    <option value="전자공학" selected>전자공학</option>
+                    <option value="건축공학">건축공학</option>
+                    <option value="화학공학">화학공학</option>
+                    <option value="신소재공학">신소재공학</option>
+                </select>
+                <br>
+                <h3>학생이 좋아하는 교양과목을 선택하시오. (다중선택)</h3>
+                <select name="subject" id="subject" multiple>
+                    <option value="영어회화">영어회화</option>
+                    <option value="시와문학">시와문학</option>
+                    <option value="법과윤리">법과윤리</option>
+                    <option value="프로그래밍">프로그래밍</option>
+                    <option value="세계역사">세계역사</option>
+                    <option value="심리학">심리학</option>
+                </select>
+                <br><br>
+                <button type="button" onclick="inputData()">결과 제출</button>
+            </fieldset>
+        </form>
+        <br>
+        <div id="result"></div>
+    </div>
+</body>
+</html>

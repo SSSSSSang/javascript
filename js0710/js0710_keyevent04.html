@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Event 4번</title>
+    <style>
+        #msg { height: 20px; margin: 10px 0;}
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let txt1 = document.querySelector("#txt1");
+            let txt2 = document.querySelector("#txt2");
+            let msg = document.querySelector("#msg");
+
+            // 1. keyup 이벤트: inch를 cm로 계산
+            txt1.addEventListener("keyup", () => {
+                let inch = Number(txt1.value);
+
+                // 숫자가 아닌 문자를 입력했을 때 예외 처리
+                if(isNaN(inch)) {
+                    msg.textContent = "숫자가 아닙니다.";
+                    msg.style.color = "red";
+                    txt1.value = "";
+                    txt2.value = "";
+                    txt1.focus();
+                    return;
+                }
+                
+                let cm = inch * 2.54;
+                txt2.value = cm;
+            })
+
+            // 2. keyup 이벤트: cm를 inch로 계산
+            txt2.addEventListener("keyup", () => {
+                let cm = Number(txt2.value);
+
+                // 숫자가 아닌 문자를 입력했을 때 예외 처리
+                if(isNaN(cm)) { 
+                    msg.textContent = "숫자가 아닙니다.";
+                    msg.style.color = "red";
+                    txt1.value = "";
+                    txt2.value = "";
+                    txt2.focus();
+                    return;
+                }
+                
+                let inch = cm / 2.54;
+                txt1.value = inch.toFixed(2);
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1>Key Event 4번 - keydown</h1>
+    <input type="text" id="txt1"> inch <-> <input type="text" id="txt2"> cm<br>
+    <p id="msg"></p>
+</body>
+</html>
